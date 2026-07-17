@@ -2,15 +2,18 @@ package routes
   
 import (  
 	"github.com/gin-gonic/gin"  
+	"github.com/helloworld2346/news-cms/backend/configs"  
 	authHandler "github.com/helloworld2346/news-cms/backend/internal/auth/handler"  
 	authRepo "github.com/helloworld2346/news-cms/backend/internal/auth/repository"  
 	authSvc "github.com/helloworld2346/news-cms/backend/internal/auth/service"  
-	"github.com/helloworld2346/news-cms/backend/configs"  
 	"github.com/helloworld2346/news-cms/backend/pkg/jwt"  
 	"gorm.io/gorm"  
 )  
   
 func Register(r *gin.Engine, db *gorm.DB, cfg *configs.Config) {  
+	// CORS phải đứng trước mọi route để preflight OPTIONS được xử lý  
+	r.Use(CORSMiddleware(cfg.CORSAllowedOrigins))  
+  
 	jwtMgr := jwt.NewManager(cfg.JWTSecret, cfg.JWTAccessTTL, cfg.JWTRefreshTTL)  
   
 	// wiring module auth  

@@ -1,5 +1,6 @@
-import axios from "axios";
+import axios, { AxiosError, type InternalAxiosRequestConfig } from "axios";
 import { useAuthStore } from "@/store/authStore";
+import type { ApiResponse, TokenPair } from "@/types/auth";
 
 export const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
@@ -7,19 +8,50 @@ export const api = axios.create({
 });
 
 api.interceptors.request.use((config) => {
-  const token = useAuthStore.getState().token;
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
+  const token = useAuthStore.getState().accessToken;
+  if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;
 });
 
+let isRefreshing = false;
+
 api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response?.status === 401) {
-      useAuthStore.getState().logout();
+  (res) => res,
+  async (error: AxiosError) => {
+    const original = error.config as InternalAxiosRequestConfig & {
+      _retry?: boolean;
+    };
+    const { refreshToken, setTokens, logout } = useAuthStore.getState();
+
+    const isRefreshCall = original?.url?.includes("/auth/refresh");
+    if (
+      error.response?.status === 401 &&
+      original &&
+      !original._retry &&
+      refreshToken &&
+      !isRefreshCall
+    ) {
+      original._retry = true;
+      try {
+        isRefreshing = true;
+        const { data } = await axios.post<ApiResponse<TokenPair>>(
+          `${import.meta.env.VITE_API_BASE_URL}/auth/refresh`,
+          { refresh_token: refreshToken },
+        );
+        if (data.success && data.data) {
+          setTokens(data.data.access_token, data.data.refresh_token);
+          original.headers.Authorization = `Bearer ${data.data.access_token}`;
+          return api(original);
+        }
+      } catch {
+        logout();
+      } finally {
+        isRefreshing = false;
+      }
+      logout();
     }
     return Promise.reject(error);
   },
 );
+
+export { isRefreshing };

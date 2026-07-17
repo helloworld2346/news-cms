@@ -7,6 +7,6 @@ export default function RoleGuard({
   allowedRoles: string[];
 }) {
   const user = useAuthStore((s) => s.user);
-  const ok = user?.roles.some((r) => allowedRoles.includes(r));
+  const ok = user?.roles?.some((r) => allowedRoles.includes(r));
   return ok ? <Outlet /> : <Navigate to="/" replace />;
 }
