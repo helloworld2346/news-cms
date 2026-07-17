@@ -12,3 +12,7 @@ uploads/*
   
 # go  
 vendor/
+
+tmp/
+
+bin/
