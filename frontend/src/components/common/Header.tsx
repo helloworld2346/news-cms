@@ -16,8 +16,7 @@ const navItems = [
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white">
-      {/* full-width: bỏ max-w-7xl, chỉ dùng padding 2 bên */}
-      <div className="flex h-20 items-center gap-8 px-8">
+      <div className="mx-auto flex h-20 max-w-7xl items-center gap-6 px-6">
         {/* Logo + brand (trái) */}
         <div className="flex shrink-0 items-center gap-3">
           <img
@@ -26,16 +25,16 @@ export default function Header() {
             className="h-12 w-12 object-contain"
           />
           <div className="leading-tight">
-            <div className="whitespace-nowrap text-lg font-bold tracking-wide text-primary">
+            <div className="text-lg font-bold tracking-wide text-primary">
               TRANG TIN TỨC SƯ ĐOÀN
             </div>
-            <div className="whitespace-nowrap text-xs text-slate-500">
+            <div className="text-xs text-slate-500">
               Cổng thông tin điện tử nội bộ
             </div>
           </div>
         </div>
 
-        {/* Menu (giữa) — full-width, không xuống dòng */}
+        {/* Menu (giữa) */}
         <nav className="flex flex-1 items-center justify-center gap-7">
           {navItems.map((item) => (
             <NavLink
@@ -44,10 +43,9 @@ export default function Header() {
               end={item.end}
               className={({ isActive }) =>
                 cn(
-                  "relative whitespace-nowrap py-7 text-sm font-semibold tracking-wide transition-colors",
-                  isActive
-                    ? "text-accent after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:bg-accent"
-                    : "text-slate-700 hover:text-primary",
+                  "relative py-1 text-sm font-semibold tracking-wide text-slate-700 transition-colors hover:text-primary",
+                  isActive &&
+                    "text-accent after:absolute after:-bottom-[26px] after:left-0 after:h-0.5 after:w-full after:bg-accent",
                 )
               }
             >
@@ -77,7 +75,7 @@ export default function Header() {
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
               A
             </span>
-            <span className="whitespace-nowrap text-sm font-medium text-slate-700">
+            <span className="text-sm font-medium text-slate-700">
               Quản trị viên
             </span>
             <ChevronDown className="h-4 w-4 text-slate-500" />
