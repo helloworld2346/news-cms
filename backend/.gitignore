@@ -1,0 +1,14 @@
+# env  
+.env  
+  
+# binaries  
+/server  
+*.exe  
+bin/  
+  
+# uploads (dev only) - giữ thư mục, bỏ nội dung  
+uploads/*  
+!uploads/.gitkeep  
+  
+# go  
+vendor/
