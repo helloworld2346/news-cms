@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="none">  
+  <defs>  
+    <radialGradient id="vpFade" cx="50%" cy="100%" r="100%">  
+      <stop offset="0%"  stop-color="#000000"/>  
+      <stop offset="46%" stop-color="#000000"/>  
+      <stop offset="100%" stop-color="#ffffff"/>  
+    </radialGradient>  
+    <mask id="vpMask">  
+      <rect width="1920" height="1080" fill="url(#vpFade)"/>  
+    </mask>  
+  </defs>  
+  
+  <path fill="#ffffff" d="M0 0h1920v1080H0z"/>  
+  
+  <g stroke="#94a3b8" stroke-width="1" mask="url(#vpMask)">  
+    <path d="M-800 0L960 1080"/>  
+    <path d="M-520 0L960 1080"/>  
+    <path d="M-260 0L960 1080"/>  
+    <path d="M-40 0L960 1080"/>  
+    <path d="M180 0L960 1080"/>  
+    <path d="M380 0L960 1080"/>  
+    <path d="M560 0L960 1080"/>  
+    <path d="M720 0L960 1080"/>  
+    <path d="M850 0L960 1080"/>  
+    <path d="M960 0v1080"/>  
+    <path d="M1070 0L960 1080"/>  
+    <path d="M1200 0L960 1080"/>  
+    <path d="M1360 0L960 1080"/>  
+    <path d="M1540 0L960 1080"/>  
+    <path d="M1740 0L960 1080"/>  
+    <path d="M1960 0L960 1080"/>  
+    <path d="M2180 0L960 1080"/>  
+    <path d="M2440 0L960 1080"/>  
+    <path d="M2720 0L960 1080"/>  
+  
+    <path d="M0 0h1920"/>  
+    <path d="M0 210h1920"/>  
+    <path d="M0 400h1920"/>  
+    <path d="M0 560h1920"/>  
+    <path d="M0 700h1920"/>  
+    <path d="M0 810h1920"/>  
+    <path d="M0 900h1920"/>  
+    <path d="M0 970h1920"/>  
+    <path d="M0 1025h1920"/>  
+    <path d="M0 1065h1920"/>  
+  </g>  
+</svg>

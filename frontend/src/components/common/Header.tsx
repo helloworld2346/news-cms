@@ -17,10 +17,10 @@ export default function Header() {
           />
           <div className="min-w-0 leading-tight">
             <div className="truncate text-lg font-bold tracking-wide text-primary">
-              TRANG TIN TỨC SƯ ĐOÀN
+              TRANG TIN TỨC SƯ ĐOÀN 5
             </div>
             <div className="truncate text-xs text-slate-500">
-              Cổng thông tin điện tử nội bộ
+              Cổng thông tin điện tử
             </div>
           </div>
         </div>

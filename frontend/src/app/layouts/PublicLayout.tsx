@@ -5,7 +5,6 @@ import Footer from "@/components/common/Footer";
 export default function PublicLayout() {
   return (
     <div className="flex min-h-screen flex-col overflow-x-clip bg-surface">
-      {" "}
       <Header />
       <main className="flex-1">
         <Outlet />

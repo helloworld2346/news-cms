@@ -21,7 +21,7 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 py-12 md:grid-cols-4">
         {/* Brand */}
         <div>
-          <div className="mb-3 text-lg font-bold">TRANG TIN TỨC SƯ ĐOÀN</div>
+          <div className="mb-3 text-lg font-bold">TRANG TIN TỨC SƯ ĐOÀN 5</div>
           <p className="text-sm text-primary-foreground/70">
             Cổng thông tin điện tử &amp; thư viện số nội bộ.
           </p>
@@ -58,7 +58,7 @@ export default function Footer() {
               <Clock className="h-4 w-4" /> 07:30 - 17:00
             </span>
           </div>
-          <div>© 2026 Trang tin tức Sư đoàn · Internal Use Only</div>
+          <div>© 2026 Trang tin tức Sư đoàn 5 · Internal Use Only</div>
         </div>
       </div>
     </footer>
