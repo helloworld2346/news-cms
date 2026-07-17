@@ -10,11 +10,6 @@ export default function HeroSection() {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat mix-blend-multiply"
-        style={{ backgroundImage: `url("/backgrounds/hero-noise.svg")` }}
-      />
-      <div
-        aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-24 bg-gradient-to-b from-transparent to-surface"
       />
 
