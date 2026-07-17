@@ -13,8 +13,6 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-let isRefreshing = false;
-
 api.interceptors.response.use(
   (res) => res,
   async (error: AxiosError) => {
@@ -33,7 +31,6 @@ api.interceptors.response.use(
     ) {
       original._retry = true;
       try {
-        isRefreshing = true;
         const { data } = await axios.post<ApiResponse<TokenPair>>(
           `${import.meta.env.VITE_API_BASE_URL}/auth/refresh`,
           { refresh_token: refreshToken },
@@ -45,13 +42,9 @@ api.interceptors.response.use(
         }
       } catch {
         logout();
-      } finally {
-        isRefreshing = false;
       }
       logout();
     }
     return Promise.reject(error);
   },
 );
-
-export { isRefreshing };

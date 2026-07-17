@@ -26,27 +26,3 @@ func AuthMiddleware(jwtMgr *jwt.Manager) gin.HandlerFunc {
 		c.Next()  
 	}  
 }
-
-func CORS(allowedOrigins []string) gin.HandlerFunc {  
-	allowed := make(map[string]bool, len(allowedOrigins))  
-	for _, o := range allowedOrigins {  
-		allowed[o] = true  
-	}  
-	return func(c *gin.Context) {  
-		origin := c.Request.Header.Get("Origin")  
-		if allowed[origin] {  
-			c.Header("Access-Control-Allow-Origin", origin)  
-		}  
-		c.Header("Vary", "Origin")  
-		c.Header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS")  
-		c.Header("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Authorization")  
-		c.Header("Access-Control-Allow-Credentials", "true")  
-		c.Header("Access-Control-Max-Age", "86400")  
-  
-		if c.Request.Method == http.MethodOptions {  
-			c.AbortWithStatus(http.StatusNoContent)  
-			return  
-		}  
-		c.Next()  
-	}  
-}

@@ -43,7 +43,7 @@ func (h *AuthHandler) Refresh(c *gin.Context) {
 }  
   
 func (h *AuthHandler) Me(c *gin.Context) {  
-	userID := c.GetUint("user_id") // set bởi AuthMiddleware  
+	userID := c.GetUint("user_id")
 	user, err := h.svc.Me(userID)  
 	if err != nil {  
 		response.Error(c, http.StatusNotFound, "user not found")  

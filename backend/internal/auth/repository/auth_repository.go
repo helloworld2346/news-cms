@@ -24,7 +24,7 @@ func (r *authRepository) FindByUsername(username string) (*entity.User, error) {
   
 func (r *authRepository) FindByID(id uint) (*entity.User, error) {  
 	var u entity.User  
-	if err := r.db.First(&u, id).Error; err != nil {  
+	if err := r.db.Preload("Roles").First(&u, id).Error; err != nil {  
 		return nil, err  
 	}  
 	return &u, nil  

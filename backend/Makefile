@@ -21,5 +21,5 @@ docker-up:
 docker-down:  
 	cd .. && docker compose down  
   
-db-reset:
-	docker compose -f ../docker-compose.yml exec postgres psql -U newscms -d newscms -c "DROP TABLE IF EXISTS users;"
+db-reset:  
+	docker compose -f ../docker-compose.yml exec -T postgres psql -U newscms -d newscms -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
