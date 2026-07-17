@@ -36,7 +36,6 @@ func SeedAdmin(db *gorm.DB) error {
 	}  
 	admin = entity.User{  
 		Username:     "admin",  
-		Email:        "admin@local",  
 		FullName:     "Quản trị viên",  
 		PasswordHash: string(hash),  
 		IsActive:     true,  

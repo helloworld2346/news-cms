@@ -23,7 +23,7 @@ export default function AdminLayout() {
           </button>
           <div className="flex items-center gap-3">
             <span className="text-sm font-medium text-slate-700">
-              {user?.name ?? "Quản trị viên"}
+              {user?.full_name ?? "Quản trị viên"}
             </span>
             <button
               onClick={logout}

@@ -2,9 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { UserResponse } from "@/types/auth";
 
-export interface AuthUser extends UserResponse {
-  roles?: string[];
-}
+export type AuthUser = UserResponse;
 
 interface AuthState {
   user: AuthUser | null;

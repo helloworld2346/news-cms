@@ -19,7 +19,6 @@ export interface TokenPair {
 export interface UserResponse {
   id: number;
   username: string;
-  email: string;
   full_name: string;
   is_active: boolean;
   roles: string[];

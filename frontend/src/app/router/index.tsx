@@ -5,6 +5,9 @@ import AuthGuard from "@/app/guards/AuthGuard";
 import HomePage from "@/features/home/pages/HomePage";
 import LoginPage from "@/features/auth/pages/LoginPage";
 import DashboardPage from "@/features/dashboard/pages/DashboardPage";
+import UsersPage from "@/features/user/pages/UsersPage";
+import RolesPage from "@/features/role/pages/RolesPage";
+import PermissionsPage from "@/features/permission/pages/PermissionsPage"; 
 
 function Placeholder({ title }: { title: string }) {
   return <div className="p-6">{title}</div>;
@@ -34,9 +37,13 @@ export default function AppRouter() {
       <Route path="/login" element={<LoginPage />} />
 
       {/* Admin (yêu cầu đăng nhập) */}
+      {/* Admin (yêu cầu đăng nhập) */}
       <Route element={<AuthGuard />}>
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="dashboard" element={<DashboardPage />} />
+          <Route path="users" element={<UsersPage />} />
+          <Route path="roles" element={<RolesPage />} />
+          <Route path="permissions" element={<PermissionsPage />} />
         </Route>
       </Route>
 

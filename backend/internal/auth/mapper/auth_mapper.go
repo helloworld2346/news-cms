@@ -13,7 +13,6 @@ func ToUserResponse(u *entity.User) dto.UserResponse {
 	return dto.UserResponse{  
 		ID:       u.ID,  
 		Username: u.Username,  
-		Email:    u.Email,  
 		FullName: u.FullName,  
 		IsActive: u.IsActive,  
 		Roles:    roles,  

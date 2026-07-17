@@ -19,7 +19,6 @@ type RefreshRequest struct {
 type UserResponse struct {  
 	ID       uint     `json:"id"`  
 	Username string   `json:"username"`  
-	Email    string   `json:"email"`  
 	FullName string   `json:"full_name"`  
 	IsActive bool     `json:"is_active"`  
 	Roles    []string `json:"roles"`  
