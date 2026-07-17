@@ -1,8 +1,9 @@
+import type { Permission } from "@/features/permission/types";
 export interface Role {
   id: number;
   name: string;
   description: string;
-  permissions: string[];
+  permissions?: Permission[];
 }
 
 export interface CreateRolePayload {

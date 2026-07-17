@@ -1,118 +1,125 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { useUsers, useUserMutations } from "@/features/user/hooks/useUsers";
+import { useRoles } from "@/features/role/hooks/useRoles";
 import { Button } from "@/components/ui/button";
-
-const schema = z.object({
-  username: z.string().min(3, "Tối thiểu 3 ký tự"),
-  password: z.string().min(6, "Tối thiểu 6 ký tự"),
-  full_name: z.string().min(1, "Bắt buộc"),
-  is_active: z.boolean(),
-});
-type FormValues = z.infer<typeof schema>;
+import type { User } from "@/features/user/types";
+import type { Role } from "@/features/role/types";
 
 export default function UsersPage() {
-  const [page, setPage] = useState(1);
-  const { data, isLoading } = useUsers(page);
-  const { create, remove } = useUserMutations();
+  const { data, isLoading } = useUsers();
+  const { remove, assignRoles } = useUserMutations();
+  const { data: roles } = useRoles();
 
-  const { register, handleSubmit, reset, formState } = useForm<FormValues>({
-    resolver: zodResolver(schema),
-    defaultValues: {
-      is_active: true,
-      username: "",
-      password: "",
-      full_name: "",
-    },
-  });
+  const [assignFor, setAssignFor] = useState<number | null>(null);
+  const [selected, setSelected] = useState<number[]>([]);
 
-  const onSubmit = (values: FormValues) =>
-    create.mutate(values, { onSuccess: () => reset() });
+  const users: User[] = data?.items ?? [];
+  const roleList: Role[] = roles ?? [];
+
+  const openAssign = (userId: number, currentRoleIds: number[]) => {
+    setAssignFor(userId);
+    setSelected(currentRoleIds);
+  };
+
+  const toggle = (id: number) =>
+    setSelected((prev) =>
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id],
+    );
+
+  const saveAssign = () => {
+    if (assignFor == null) return;
+    assignRoles.mutate(
+      { id: assignFor, roleIds: selected },
+      { onSuccess: () => setAssignFor(null) },
+    );
+  };
+
+  if (isLoading) return <div className="p-6">Đang tải...</div>;
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-xl font-bold">Quản lý người dùng</h1>
+    <div className="p-6">
+      <h1 className="mb-4 text-xl font-semibold">Người dùng</h1>
 
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-1 gap-3 rounded-md border p-4 md:grid-cols-5"
-      >
-        <input
-          className="rounded border px-3 py-2"
-          placeholder="Username"
-          {...register("username")}
-        />
-        <input
-          className="rounded border px-3 py-2"
-          placeholder="Mật khẩu"
-          type="password"
-          {...register("password")}
-        />
-        <input
-          className="rounded border px-3 py-2"
-          placeholder="Họ tên"
-          {...register("full_name")}
-        />
-        <label className="flex items-center gap-2 text-sm">
-          <input type="checkbox" {...register("is_active")} /> Kích hoạt
-        </label>
-        <Button type="submit" disabled={create.isPending}>
-          Thêm
-        </Button>
-        {formState.errors.username && (
-          <p className="col-span-full text-sm text-red-600">
-            {formState.errors.username.message}
-          </p>
-        )}
-      </form>
-
-      {isLoading ? (
-        <p>Đang tải...</p>
-      ) : (
-        <table className="w-full border-collapse text-sm">
-          <thead>
-            <tr className="border-b text-left">
-              <th className="py-2">ID</th>
-              <th>Username</th>
-              <th>Họ tên</th>
-              <th>Vai trò</th>
-              <th>Trạng thái</th>
-              <th></th>
+      <table className="w-full text-left text-sm">
+        <thead>
+          <tr className="border-b">
+            <th className="py-2">ID</th>
+            <th>Username</th>
+            <th>Họ tên</th>
+            <th>Vai trò</th>
+            <th className="text-right">Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((u) => (
+            <tr key={u.id} className="border-b">
+              <td className="py-2">{u.id}</td>
+              <td>{u.username}</td>
+              <td>{u.full_name}</td>
+              <td>{(u.roles ?? []).join(", ")}</td>
+              <td className="space-x-2 text-right">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() =>
+                    openAssign(
+                      u.id,
+                      roleList
+                        .filter((r) => (u.roles ?? []).includes(r.name))
+                        .map((r) => r.id),
+                    )
+                  }
+                >
+                  Gán vai trò
+                </Button>
+                <Button
+                  variant="destructive"
+                  size="sm"
+                  onClick={() => remove.mutate(u.id)}
+                >
+                  Xóa
+                </Button>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {data?.items.map((u) => (
-              <tr key={u.id} className="border-b">
-                <td className="py-2">{u.id}</td>
-                <td>{u.username}</td>
-                <td>{u.full_name}</td>
-                <td>{u.roles.join(", ")}</td>
-                <td>{u.is_active ? "Active" : "Inactive"}</td>
-                <td>
-                  <Button variant="ghost" onClick={() => remove.mutate(u.id)}>
-                    Xóa
-                  </Button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+          ))}
+        </tbody>
+      </table>
 
-      <div className="flex gap-2">
-        <Button
-          variant="outline"
-          disabled={page <= 1}
-          onClick={() => setPage((p) => p - 1)}
-        >
-          Trước
-        </Button>
-        <Button variant="outline" onClick={() => setPage((p) => p + 1)}>
-          Sau
-        </Button>
-      </div>
+      {assignFor != null && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+          <div className="w-80 rounded-lg bg-white p-4 shadow-lg">
+            <h2 className="mb-3 font-semibold">Gán vai trò</h2>
+            <div className="max-h-60 space-y-2 overflow-y-auto">
+              {roleList.map((r) => (
+                <label key={r.id} className="flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    checked={selected.includes(r.id)}
+                    onChange={() => toggle(r.id)}
+                  />
+                  {r.name}
+                </label>
+              ))}
+            </div>
+            <div className="mt-4 flex justify-end gap-2">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setAssignFor(null)}
+              >
+                Hủy
+              </Button>
+              <Button
+                size="sm"
+                onClick={saveAssign}
+                disabled={assignRoles.isPending}
+              >
+                Lưu
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

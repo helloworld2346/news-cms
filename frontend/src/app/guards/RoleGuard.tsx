@@ -1,12 +1,8 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuthStore } from "@/store/authStore";
 
-export default function RoleGuard({
-  allowedRoles,
-}: {
-  allowedRoles: string[];
-}) {
+export default function RoleGuard({ roles }: { roles: string[] }) {
   const user = useAuthStore((s) => s.user);
-  const ok = user?.roles?.some((r) => allowedRoles.includes(r));
+  const ok = user?.roles?.some((r) => roles.includes(r));
   return ok ? <Outlet /> : <Navigate to="/" replace />;
 }

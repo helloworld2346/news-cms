@@ -9,6 +9,7 @@ export const buttonVariants = cva(
         accent: "bg-accent text-accent-foreground hover:bg-accent/90",
         outline: "border border-slate-300 bg-white hover:bg-slate-50",
         ghost: "hover:bg-slate-100",
+        destructive: "bg-red-600 text-white hover:bg-red-700",
       },
       size: {
         default: "h-10 px-4 py-2",
