@@ -11,5 +11,6 @@ export interface CreateRolePayload {
 }
 
 export interface UpdateRolePayload {
+  name: string;
   description?: string;
 }

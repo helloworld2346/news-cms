@@ -24,6 +24,9 @@ func main() {
 	if err := auth.SeedAdmin(db); err != nil {
 		log.Fatalf("seed admin failed: %v", err)
 	}
+	if err := auth.SeedPermissions(db); err != nil {
+		log.Fatalf("seed permission failed: %v", err)
+	}
 
 	r := gin.Default()
 

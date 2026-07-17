@@ -47,3 +47,33 @@ func SeedAdmin(db *gorm.DB) error {
 	log.Println("seeded default admin (username=admin, password=admin123, role=admin)")  
 	return nil  
 }
+
+func SeedPermissions(db *gorm.DB) error {  
+	codes := []struct{ Code, Name string }{  
+		{"user.read", "Xem người dùng"},  
+		{"user.create", "Tạo người dùng"},  
+		{"user.update", "Sửa người dùng"},  
+		{"user.delete", "Xóa người dùng"},  
+		{"role.read", "Xem vai trò"},  
+		{"role.create", "Tạo vai trò"},  
+		{"role.update", "Sửa vai trò"},  
+		{"role.delete", "Xóa vai trò"},  
+		{"permission.read", "Xem quyền"},  
+		{"permission.create", "Tạo quyền"},  
+		{"permission.update", "Sửa quyền"},  
+		{"permission.delete", "Xóa quyền"},  
+	}  
+	var perms []entity.Permission  
+	for _, c := range codes {  
+		p := entity.Permission{Code: c.Code, Name: c.Name}  
+		if err := db.Where("code = ?", c.Code).FirstOrCreate(&p, entity.Permission{Code: c.Code}).Error; err != nil {  
+			return err  
+		}  
+		perms = append(perms, p)  
+	}  
+	var adminRole entity.Role  
+	if err := db.Where("name = ?", "admin").First(&adminRole).Error; err != nil {  
+		return err  
+	}  
+	return db.Model(&adminRole).Association("Permissions").Replace(perms)  
+}

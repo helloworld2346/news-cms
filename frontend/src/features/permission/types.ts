@@ -1,10 +1,10 @@
 export interface Permission {
   id: number;
   code: string;
-  description: string;
+  name: string;
 }
 
 export interface CreatePermissionPayload {
   code: string;
-  description: string;
+  name: string;
 }

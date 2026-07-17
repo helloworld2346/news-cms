@@ -17,3 +17,4 @@ export const permissionService = {
     await api.delete(`/permissions/${id}`);
   },
 };
+    

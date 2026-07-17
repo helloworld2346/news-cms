@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 
 const schema = z.object({
   code: z.string().min(3, "vd: user.create"),
-  description: z.string(),
+  name: z.string().min(2, "Tên quyền"),
 });
 type FormValues = z.infer<typeof schema>;
 
@@ -18,7 +18,7 @@ export default function PermissionsPage() {
   const { create, remove } = usePermissionMutations();
   const { register, handleSubmit, reset } = useForm<FormValues>({
     resolver: zodResolver(schema),
-    defaultValues: { code: "", description: "" },
+    defaultValues: { code: "", name: "" },
   });
 
   return (
@@ -38,8 +38,8 @@ export default function PermissionsPage() {
         />
         <input
           className="rounded border px-3 py-2"
-          placeholder="Mô tả"
-          {...register("description")}
+          placeholder="Tên quyền"
+          {...register("name")}
         />
         <Button type="submit" disabled={create.isPending}>
           Thêm
@@ -54,7 +54,7 @@ export default function PermissionsPage() {
             <tr className="border-b text-left">
               <th className="py-2">ID</th>
               <th>Code</th>
-              <th>Mô tả</th>
+              <th>Tên</th>
               <th></th>
             </tr>
           </thead>
@@ -63,7 +63,7 @@ export default function PermissionsPage() {
               <tr key={p.id} className="border-b">
                 <td className="py-2">{p.id}</td>
                 <td>{p.code}</td>
-                <td>{p.description}</td>
+                <td>{p.name}</td>
                 <td>
                   <Button variant="ghost" onClick={() => remove.mutate(p.id)}>
                     Xóa
