@@ -8,10 +8,10 @@ import {
   HelpCircle,
   ClipboardList,
   Contact,
-  LayoutGrid,
+  MoreHorizontal,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { useQuickAccess } from "../hooks/useHomeData";  
+import { useQuickAccess } from "../hooks/useHomeData";
 
 const iconMap: Record<string, LucideIcon> = {
   news: Newspaper,
@@ -23,27 +23,27 @@ const iconMap: Record<string, LucideIcon> = {
   help: HelpCircle,
   form: ClipboardList,
   contact: Contact,
-  all: LayoutGrid,
+  all: MoreHorizontal,
 };
 
 export default function QuickAccess() {
-  const { data: items = [] } = useQuickAccess();  
+  const { data: items = [] } = useQuickAccess();
   return (
-    <div className="grid grid-cols-2 gap-4 sm:grid-cols-5 lg:grid-cols-10">
-      {items.map(({ key, label, color }) => {
+    <div className="flex flex-wrap items-start justify-between gap-1 rounded-lg border border-slate-200 bg-white p-3 shadow-sm sm:gap-2 sm:p-4">
+      {items.map(({ key, label, bg, text }) => {
         const Icon = iconMap[key];
         return (
           <a
             key={key}
             href="#"
-            className="flex flex-col items-center gap-2 rounded-lg border border-slate-200 bg-white p-4 text-center shadow-sm transition hover:shadow-md"
+            className="flex w-[4.5rem] flex-col items-center gap-2 rounded-xl px-2 py-3 text-center transition hover:bg-slate-50 sm:w-24"
           >
             <span
-              className={`flex h-11 w-11 items-center justify-center rounded-full ${color} text-white`}
+              className={`flex h-11 w-11 items-center justify-center rounded-full ${bg} ${text}`}
             >
               <Icon className="h-5 w-5" />
             </span>
-            <span className="text-xs font-medium text-slate-700">{label}</span>
+            <span className="text-xs font-medium text-slate-600">{label}</span>
           </a>
         );
       })}

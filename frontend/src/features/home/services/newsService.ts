@@ -10,12 +10,25 @@ export function getFeaturedMain(): FeaturedMain {
 
 export function getFeaturedSide(): FeaturedSide[] {
   return [
-    { title: "Đẩy mạnh phong trào thi đua quyết thắng", date: "16/07/2026" },
     {
-      title: "Tăng cường công tác huấn luyện sẵn sàng chiến đấu",
-      date: "15/07/2026",
+      title: "Diễn tập chiến thuật có bắn đạn thật tại thao trường tổng hợp",
+      date: "15/05/2026",
+      dept: "Phòng Tham mưu",
+      desc: "Đợt diễn tập nhằm nâng cao năng lực chỉ huy, hiệp đồng và khả năng sẵn sàng chiến đấu của các lực lượng...",
     },
-    { title: "Hoạt động đền ơn đáp nghĩa tại địa phương", date: "14/07/2026" },
+    {
+      title:
+        "Tăng cường ứng dụng công nghệ thông tin trong quản lý và điều hành",
+      date: "14/05/2026",
+      dept: "Phòng Kỹ thuật",
+      desc: "Đẩy mạnh chuyển đổi số, ứng dụng CNTT giúp nâng cao hiệu quả quản lý, giảm thiểu thủ tục hành chính...",
+    },
+    {
+      title: "Khen thưởng các tập thể và cá nhân có thành tích xuất sắc",
+      date: "14/05/2026",
+      dept: "Phòng Chính trị",
+      desc: "Biểu dương và khen thưởng các tập thể, cá nhân đã có thành tích xuất sắc trong phong trào thi đua quyết thắng...",
+    },
   ];
 }
 

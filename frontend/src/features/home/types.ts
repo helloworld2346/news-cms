@@ -6,6 +6,8 @@ export interface FeaturedMain {
 export interface FeaturedSide {
   title: string;
   date: string;
+  dept: string;
+  desc: string;
 }
 export interface LatestNewsItem {
   title: string;
@@ -34,7 +36,8 @@ export interface VideoItem {
 export interface QuickAccessItem {
   key: string;
   label: string;
-  color: string;
+  bg: string; // vd "bg-blue-50"
+  text: string; // vd "text-blue-500"
 }
 export interface LibraryStatItem {
   key: string;
