@@ -17,18 +17,27 @@ export interface LatestNewsItem {
 }
 export interface DocumentItem {
   name: string;
-  type: string;
+  type: string; // PDF | DOC | XLS | PPT
   size: string;
-  color: string;
+  date: string;
+  dept: string;
+  color: string; // text màu, vd "text-red-600"
+  bg: string; // nền badge tĩnh, vd "bg-red-50"
 }
 export interface NotificationItem {
   title: string;
   date: string;
+  dept: string;
 }
 export interface ScheduleItem {
-  time: string;
+  time: string; // "08:00"
   title: string;
-  day: string;
+  dept: string;
+}
+export interface ScheduleDate {
+  weekday: string; // "Thứ sáu"
+  day: string; // "16"
+  month: string; // "05/2026"
 }
 export interface VideoItem {
   title: string;

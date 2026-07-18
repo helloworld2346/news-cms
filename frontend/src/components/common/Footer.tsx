@@ -23,7 +23,7 @@ export default function Footer() {
         <div>
           <div className="mb-3 text-lg font-bold">TRANG TIN TỨC SƯ ĐOÀN 5</div>
           <p className="text-sm text-primary-foreground/70">
-            Cổng thông tin điện tử &amp; thư viện số nội bộ.
+            Cổng thông tin điện tử Sư đoàn 5
           </p>
         </div>
 

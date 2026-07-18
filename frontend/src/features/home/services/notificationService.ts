@@ -2,10 +2,30 @@ import type { NotificationItem } from "../types";
 
 export function getNotifications(): NotificationItem[] {
   return [
-    { title: "Lịch trực chỉ huy tuần 29", date: "17/07/2026" },
-    { title: "Thông báo họp giao ban tháng", date: "16/07/2026" },
-    { title: "Kế hoạch kiểm tra đột xuất", date: "15/07/2026" },
-    { title: "Thông báo nghỉ lễ", date: "14/07/2026" },
-    { title: "Triệu tập tập huấn nghiệp vụ", date: "13/07/2026" },
+    {
+      title: "Thông báo nghỉ lễ 30/04 và 01/05/2026",
+      date: "15/05/2026",
+      dept: "Phòng Hậu cần",
+    },
+    {
+      title: "Thông báo về việc khám sức khỏe định kỳ năm 2026",
+      date: "15/05/2026",
+      dept: "Phòng Quân y",
+    },
+    {
+      title: "Thông báo họp giao ban tháng 5/2026",
+      date: "14/05/2026",
+      dept: "Phòng Tham mưu",
+    },
+    {
+      title: "Thông báo tổ chức diễn tập phòng cháy chữa cháy",
+      date: "13/05/2026",
+      dept: "Phòng Hậu cần",
+    },
+    {
+      title: "Thông báo cập nhật phần mềm quản lý văn bản",
+      date: "13/05/2026",
+      dept: "Phòng Kỹ thuật",
+    },
   ];
 }

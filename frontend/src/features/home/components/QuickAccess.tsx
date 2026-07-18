@@ -30,7 +30,7 @@ const iconMap: Record<string, LucideIcon> = {
 export default function QuickAccess() {
   const { data: items = [] } = useQuickAccess();
   return (
-    <div className="flex flex-wrap items-start justify-between gap-1 rounded-2xl border border-slate-200 bg-white p-3 shadow-sm sm:gap-2 sm:p-4">
+    <div className="flex flex-wrap items-start justify-between gap-1 rounded-xl border border-slate-200 bg-white p-3 shadow-sm sm:gap-2 sm:p-4">
       {items.map(({ key, label, bg, text }, i) => {
         const Icon = iconMap[key];
         return (

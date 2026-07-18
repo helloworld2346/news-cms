@@ -6,7 +6,10 @@ import {
 } from "@/features/home/services/newsService";
 import { getDocuments } from "@/features/home/services/documentService";
 import { getNotifications } from "@/features/home/services/notificationService";
-import { getSchedule } from "@/features/home/services/scheduleService";
+import {
+  getSchedule,
+  getScheduleDate,
+} from "@/features/home/services/scheduleService";  
 import { getQuickAccess } from "@/features/home/services/quickAccessService";
 import { getLibraryStats } from "@/features/home/services/libraryStatsService";
 import { getVideos } from "@/features/home/services/videoService";
@@ -24,6 +27,8 @@ export const useNotifications = () =>
   useQuery({ queryKey: ["home", "notifications"], queryFn: getNotifications });
 export const useSchedule = () =>
   useQuery({ queryKey: ["home", "schedule"], queryFn: getSchedule });
+export const useScheduleDate = () =>
+  useQuery({ queryKey: ["home", "schedule-date"], queryFn: getScheduleDate });
 export const useQuickAccess = () =>
   useQuery({ queryKey: ["home", "quick-access"], queryFn: getQuickAccess });
 export const useLibraryStats = () =>

@@ -15,7 +15,7 @@ export default function HeroSection() {
 
       <div className="relative z-10 mx-auto max-w-3xl px-6 pt-24 pb-10 text-center">
         <h1 className="text-3xl font-bold text-primary md:text-4xl">
-          Cổng thông tin điện tử &amp; thư viện số
+          Cổng thông tin điện tử Sư đoàn 5
         </h1>
         <p className="mt-3 text-slate-600">
           Tìm kiếm thông tin, văn bản và tài liệu nội bộ nhanh chóng

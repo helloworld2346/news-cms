@@ -1,11 +1,18 @@
-import type { ScheduleItem } from "../types";
+import type { ScheduleItem, ScheduleDate } from "../types";
+
+export function getScheduleDate(): ScheduleDate {
+  return { weekday: "Thứ sáu", day: "16", month: "05/2026" };
+}
 
 export function getSchedule(): ScheduleItem[] {
   return [
-    { time: "07:30", title: "Giao ban chỉ huy", day: "Thứ 2" },
-    { time: "09:00", title: "Kiểm tra huấn luyện", day: "Thứ 3" },
-    { time: "14:00", title: "Họp Đảng uỷ", day: "Thứ 4" },
-    { time: "08:00", title: "Diễn tập hiệp đồng", day: "Thứ 5" },
-    { time: "15:30", title: "Sơ kết tuần", day: "Thứ 6" },
+    { time: "08:00", title: "Họp giao ban tuần", dept: "Phòng Tham mưu" },
+    {
+      time: "10:00",
+      title: "Kiểm tra công tác hậu cần",
+      dept: "Phòng Hậu cần",
+    },
+    { time: "14:00", title: "Tập huấn nghiệp vụ", dept: "Phòng Chính trị" },
+    { time: "16:00", title: "Họp Ban Thường vụ", dept: "Ban Thường vụ" },
   ];
 }
