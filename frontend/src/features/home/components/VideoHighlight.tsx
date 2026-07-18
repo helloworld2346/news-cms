@@ -1,13 +1,10 @@
-import { PlayCircle } from "lucide-react";
-import SectionHeading from "./SectionHeading";
 
-const videos = [
-  { title: "Phóng sự: Ngày truyền thống Sư đoàn" },
-  { title: "Huấn luyện dã ngoại 2026" },
-  { title: "Giao lưu văn nghệ quân dân" },
-];
+import { PlayCircle } from "lucide-react";  
+import SectionHeading from "./SectionHeading";  
+import { getVideos } from "../services/videoService";  
 
 export default function VideoHighlight() {
+  const videos = getVideos();
   return (
     <div>
       <SectionHeading title="Video nổi bật" />

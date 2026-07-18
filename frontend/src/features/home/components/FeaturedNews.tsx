@@ -1,19 +1,8 @@
-const main = {
-  title: "Hội nghị tổng kết công tác năm 2026 của Sư đoàn",
-  desc: "Sáng nay, Sư đoàn tổ chức hội nghị tổng kết, đánh giá kết quả thực hiện nhiệm vụ và triển khai phương hướng năm mới.",
-  date: "17/07/2026",
-};
-
-const side = [
-  { title: "Đẩy mạnh phong trào thi đua quyết thắng", date: "16/07/2026" },
-  {
-    title: "Tăng cường công tác huấn luyện sẵn sàng chiến đấu",
-    date: "15/07/2026",
-  },
-  { title: "Hoạt động đền ơn đáp nghĩa tại địa phương", date: "14/07/2026" },
-];
+import { getFeaturedMain, getFeaturedSide } from "../services/newsService";
 
 export default function FeaturedNews() {
+  const main = getFeaturedMain();
+  const side = getFeaturedSide();
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
       {/* tin lớn */}
