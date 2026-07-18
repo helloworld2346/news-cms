@@ -13,6 +13,7 @@ export interface LatestNewsItem {
   title: string;
   date: string;
   dept: string;
+  thumbnail: string;
 }
 export interface DocumentItem {
   name: string;
@@ -36,8 +37,8 @@ export interface VideoItem {
 export interface QuickAccessItem {
   key: string;
   label: string;
-  bg: string; // vd "bg-blue-50"
-  text: string; // vd "text-blue-500"
+  bg: string;
+  text: string;
 }
 export interface LibraryStatItem {
   key: string;

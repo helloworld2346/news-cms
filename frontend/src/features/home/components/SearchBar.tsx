@@ -18,7 +18,7 @@ export default function SearchBar() {
       onSubmit={handleSubmit}
       className="mx-auto flex w-full max-w-3xl items-center gap-3"
     >
-      <div className="flex min-w-0 flex-1 items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3 shadow-lg shadow-slate-900/5">
+      <div className="flex min-w-0 flex-1 items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-4 shadow-lg shadow-slate-900/5">
         <Search className="h-5 w-5 shrink-0 text-accent" />
         <input
           type="text"
@@ -31,7 +31,7 @@ export default function SearchBar() {
 
       <button
         type="submit"
-        className="shrink-0 rounded-full bg-accent px-8 py-3 text-sm font-semibold text-accent-foreground shadow-lg shadow-accent/20 transition-colors hover:bg-accent/90"
+        className="shrink-0 rounded-full bg-accent px-8 py-4 text-sm font-semibold text-accent-foreground shadow-lg shadow-accent/20 transition-colors hover:bg-accent/90"
       >
         Tìm kiếm
       </button>

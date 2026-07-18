@@ -11,6 +11,7 @@ import {
   MoreHorizontal,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { Fragment } from "react";
 import { useQuickAccess } from "../hooks/useHomeData";
 
 const iconMap: Record<string, LucideIcon> = {
@@ -29,22 +30,32 @@ const iconMap: Record<string, LucideIcon> = {
 export default function QuickAccess() {
   const { data: items = [] } = useQuickAccess();
   return (
-    <div className="flex flex-wrap items-start justify-between gap-1 rounded-lg border border-slate-200 bg-white p-3 shadow-sm sm:gap-2 sm:p-4">
-      {items.map(({ key, label, bg, text }) => {
+    <div className="flex flex-wrap items-start justify-between gap-1 rounded-2xl border border-slate-200 bg-white p-3 shadow-sm sm:gap-2 sm:p-4">
+      {items.map(({ key, label, bg, text }, i) => {
         const Icon = iconMap[key];
         return (
-          <a
-            key={key}
-            href="#"
-            className="flex w-[4.5rem] flex-col items-center gap-2 rounded-xl px-2 py-3 text-center transition hover:bg-slate-50 sm:w-24"
-          >
-            <span
-              className={`flex h-11 w-11 items-center justify-center rounded-full ${bg} ${text}`}
+          <Fragment key={key}>
+            <a
+              href="#"
+              className="flex w-[4.5rem] flex-col items-center gap-2 rounded-xl px-2 py-3 text-center transition hover:bg-slate-50 sm:w-24"
             >
-              <Icon className="h-5 w-5" />
-            </span>
-            <span className="text-xs font-medium text-slate-600">{label}</span>
-          </a>
+              <span
+                className={`flex h-11 w-11 items-center justify-center rounded-full ${bg} ${text}`}
+              >
+                <Icon className="h-6 w-6" />
+              </span>
+              <span className="text-xs font-medium text-slate-600">
+                {label}
+              </span>
+            </a>
+
+            {i < items.length - 1 && (
+              <span
+                aria-hidden
+                className="mx-1 h-14 w-px shrink-0 self-center bg-gradient-to-b from-transparent via-primary/30 to-transparent"
+              />
+            )}
+          </Fragment>
         );
       })}
     </div>

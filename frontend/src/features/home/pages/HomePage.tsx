@@ -12,7 +12,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <div className="mx-auto max-w-7xl space-y-12 px-6 py-10">
+      <div className="mx-auto max-w-screen-2xl space-y-12 px-6 py-10 md:px-8">
         <FeaturedNews />
         <QuickAccess />
         <InfoColumns />

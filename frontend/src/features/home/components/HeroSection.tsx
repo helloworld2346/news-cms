@@ -13,7 +13,7 @@ export default function HeroSection() {
         className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-24 bg-gradient-to-b from-transparent to-surface"
       />
 
-      <div className="relative z-10 mx-auto max-w-3xl px-6 py-24 text-center">
+      <div className="relative z-10 mx-auto max-w-3xl px-6 pt-24 pb-10 text-center">
         <h1 className="text-3xl font-bold text-primary md:text-4xl">
           Cổng thông tin điện tử &amp; thư viện số
         </h1>

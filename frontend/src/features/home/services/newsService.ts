@@ -38,26 +38,31 @@ export function getLatestNews(): LatestNewsItem[] {
       title: "Sư đoàn tổ chức diễn tập hiệp đồng",
       date: "17/07/2026",
       dept: "Phòng Tham mưu",
+      thumbnail: "/images/news/tin-1.jpg",
     },
     {
       title: "Gặp mặt cán bộ hưu trí nhân dịp lễ",
       date: "16/07/2026",
       dept: "Phòng Chính trị",
+      thumbnail: "/images/news/tin-1.jpg",
     },
     {
       title: "Kiểm tra công tác hậu cần quý III",
       date: "15/07/2026",
       dept: "Phòng Hậu cần",
+      thumbnail: "/images/news/tin-1.jpg",
     },
     {
       title: "Bồi dưỡng nghiệp vụ cho cán bộ trẻ",
       date: "14/07/2026",
       dept: "Phòng Chính trị",
+      thumbnail: "/images/news/tin-1.jpg",
     },
     {
       title: "Hội thao chào mừng ngày truyền thống",
       date: "13/07/2026",
       dept: "Ban TDTT",
+      thumbnail: "/images/news/tin-1.jpg",
     },
   ];
 }
