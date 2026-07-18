@@ -1,8 +1,8 @@
 import SectionHeading from "./SectionHeading";
-import { getGalleryCount } from "../services/galleryService";
+import { useGalleryCount } from "../hooks/useHomeData";  
 
 export default function ImageGallery() {
-  const count = getGalleryCount();
+  const { data: count = 0 } = useGalleryCount();  
   return (
     <div>
       <SectionHeading title="Hình ảnh hoạt động" />

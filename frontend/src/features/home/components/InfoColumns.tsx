@@ -1,15 +1,17 @@
-import { FileText } from "lucide-react";
-import SectionHeading from "./SectionHeading";
-import { getLatestNews } from "../services/newsService";
-import { getDocuments } from "../services/documentService";
-import { getNotifications } from "../services/notificationService";
-import { getSchedule } from "../services/scheduleService";
-
+import { FileText } from "lucide-react";  
+import SectionHeading from "./SectionHeading";  
+import {  
+  useLatestNews,  
+  useDocuments,  
+  useNotifications,  
+  useSchedule,  
+} from "../hooks/useHomeData";  
+  
 export default function InfoColumns() {
-  const latestNews = getLatestNews();
-  const documents = getDocuments();
-  const notifications = getNotifications();
-  const schedule = getSchedule();
+  const { data: latestNews = [] } = useLatestNews();  
+  const { data: documents = [] } = useDocuments();  
+  const { data: notifications = [] } = useNotifications();  
+  const { data: schedule = [] } = useSchedule();  
   return (
     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
       {/* Tin mới nhất */}

@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import SectionHeading from "./SectionHeading";
-import { getLibraryStats } from "../services/libraryStatsService";
+import { useLibraryStats } from "../hooks/useHomeData";  
 
 const iconMap: Record<string, LucideIcon> = {
   pdf: FileText,
@@ -18,7 +18,7 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 export default function LibraryStats() {
-  const stats = getLibraryStats();
+  const { data: stats = [] } = useLibraryStats(); 
   return (
     <div>
       <SectionHeading title="Thư viện số" />

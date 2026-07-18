@@ -1,8 +1,9 @@
-import { getFeaturedMain, getFeaturedSide } from "../services/newsService";
+import { useFeaturedMain, useFeaturedSide } from "../hooks/useHomeData";
 
 export default function FeaturedNews() {
-  const main = getFeaturedMain();
-  const side = getFeaturedSide();
+  const { data: main } = useFeaturedMain();
+  const { data: side = [] } = useFeaturedSide();
+  if (!main) return null;
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
       {/* tin lớn */}

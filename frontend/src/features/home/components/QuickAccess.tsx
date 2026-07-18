@@ -11,7 +11,7 @@ import {
   LayoutGrid,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { getQuickAccess } from "../services/quickAccessService";
+import { useQuickAccess } from "../hooks/useHomeData";  
 
 const iconMap: Record<string, LucideIcon> = {
   news: Newspaper,
@@ -27,7 +27,7 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 export default function QuickAccess() {
-  const items = getQuickAccess();
+  const { data: items = [] } = useQuickAccess();  
   return (
     <div className="grid grid-cols-2 gap-4 sm:grid-cols-5 lg:grid-cols-10">
       {items.map(({ key, label, color }) => {

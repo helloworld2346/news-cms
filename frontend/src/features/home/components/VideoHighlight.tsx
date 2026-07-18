@@ -1,10 +1,9 @@
-
-import { PlayCircle } from "lucide-react";  
-import SectionHeading from "./SectionHeading";  
-import { getVideos } from "../services/videoService";  
+import { PlayCircle } from "lucide-react";
+import SectionHeading from "./SectionHeading";
+import { useVideos } from "../hooks/useHomeData";
 
 export default function VideoHighlight() {
-  const videos = getVideos();
+  const { data: videos = [] } = useVideos();
   return (
     <div>
       <SectionHeading title="Video nổi bật" />
