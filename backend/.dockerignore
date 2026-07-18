@@ -1,7 +1,0 @@
-bin/  
-uploads/  
-*.md  
-.env  
-.git  
-tmp/  
-vendor/
