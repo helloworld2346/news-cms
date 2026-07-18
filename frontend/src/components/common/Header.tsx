@@ -34,7 +34,7 @@ export default function Header() {
               className={({ isActive }) =>
                 cn(
                   "relative whitespace-nowrap py-7 text-sm font-semibold tracking-wide transition-colors",
-                  "after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:bg-accent after:transition-transform",
+                  "after:absolute after:inset-x-0 after:bottom-5 after:h-0.5 after:bg-accent after:transition-transform",
                   isActive
                     ? "text-accent after:scale-x-100"
                     : "text-slate-700 hover:text-primary after:scale-x-0",
