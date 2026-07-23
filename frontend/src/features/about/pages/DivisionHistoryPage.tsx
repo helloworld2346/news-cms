@@ -39,8 +39,7 @@ export default function DivisionHistoryPage() {
             Giới thiệu
           </div>
           <h1 className="mt-4 text-3xl font-bold leading-tight md:text-4xl">
-            Lịch sử truyền thống vẻ vang Sư đoàn 5 - Quân khu 7 (1965 -
-            2026)
+            Lịch sử truyền thống vẻ vang Sư đoàn 5 - Quân khu 7 (1965 - 2026)
           </h1>
           <p className="mx-auto mt-3 max-w-2xl text-sm font-semibold italic text-yellow-400 md:text-base">
             “Đoàn kết trung dũng, cơ động linh hoạt, tự lực tự cường, đánh thắng
@@ -108,15 +107,17 @@ export default function DivisionHistoryPage() {
         <h2 className="border-l-4 border-accent pl-3 text-xl font-bold uppercase text-primary">
           Những chiến thắng vang dội
         </h2>
-        <img
-          src={anhHuyChuong}
-          alt="Chiến công Sư đoàn 5"
-          className="mt-5 h-96 w-full object-cover shadow-sm md:h-[36rem]"
-        />
-        <figcaption className="mt-2 text-center text-xs italic text-slate-500">
-          Thiếu tướng Du Trường Giang thừa ủy quyền của Chủ tịch nước trao tặng
-          Huân chương Bảo vệ Tổ quốc hạng Nhì cho Bộ Chỉ huy Sư đoàn 5.
-        </figcaption>
+        <figure className="mt-8">
+          <img
+            src={anhHuyChuong}
+            alt="Chiến công Sư đoàn 5"
+            className="mt-5 h-96 w-full object-cover shadow-sm md:h-[36rem]"
+          />
+          <figcaption className="mt-2 text-center text-xs italic text-slate-500">
+            Thiếu tướng Du Trường Giang thừa ủy quyền của Chủ tịch nước trao
+            tặng Huân chương Bảo vệ Tổ quốc hạng Nhì cho Bộ Chỉ huy Sư đoàn 5.
+          </figcaption>
+        </figure>
         <ul className="mt-6 space-y-4">
           {battles.map((b) => (
             <li key={b.name} className="flex gap-3">
