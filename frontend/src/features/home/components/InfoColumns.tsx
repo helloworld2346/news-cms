@@ -7,6 +7,7 @@ import {
   useSchedule,
   useScheduleDate,
 } from "../hooks/useHomeData";
+import anhMau2 from "@/assets/images/anhmau2.jpg"; 
 
 export default function InfoColumns() {
   const { data: latestNews = [] } = useLatestNews();
@@ -24,10 +25,10 @@ export default function InfoColumns() {
           {latestNews.map((n) => (
             <li
               key={n.title}
-              className="flex items-start gap-3 border-b border-slate-100 pb-3 last:border-0"
+              className="flex h-[76px] items-center gap-3 border-b border-slate-100 last:border-0"
             >
               <img
-                src={n.thumbnail}
+                src={anhMau2}
                 alt={n.title}
                 className="h-14 w-14 shrink-0 rounded-lg object-cover"
               />
@@ -55,7 +56,7 @@ export default function InfoColumns() {
           {documents.map((d) => (
             <li
               key={d.name}
-              className="flex items-start gap-3 border-b border-slate-100 pb-3 last:border-0"
+              className="flex h-[76px] items-center gap-3 border-b border-slate-100 last:border-0"
             >
               <div
                 className={`flex h-11 w-11 shrink-0 flex-col items-center justify-center rounded-lg ${d.bg} ${d.color}`}
@@ -90,7 +91,7 @@ export default function InfoColumns() {
           {notifications.map((n) => (
             <li
               key={n.title}
-              className="flex items-start gap-3 border-b border-slate-100 pb-3 last:border-0"
+              className="flex h-[76px] items-center gap-3 border-b border-slate-100 last:border-0"
             >
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-50 text-accent">
                 <Bell className="h-4 w-4" />

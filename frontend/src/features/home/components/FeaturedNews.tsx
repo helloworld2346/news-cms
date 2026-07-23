@@ -1,5 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { useFeaturedMain, useFeaturedSide } from "../hooks/useHomeData";
+import anhMau1 from "@/assets/images/anhmau1.png";
+import anhMau3 from "@/assets/images/anhmau3.jpeg";
 
 export default function FeaturedNews() {
   const { data: main } = useFeaturedMain();
@@ -8,14 +10,13 @@ export default function FeaturedNews() {
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
       {/* tin lớn */}
-      <article className="group relative h-full min-h-[20rem] overflow-hidden rounded-lg border border-slate-200 shadow-sm">
-        {/* ảnh phủ toàn khung */}
-        <div className="absolute inset-0 flex items-center justify-center bg-slate-200 text-slate-400">
-          Ảnh tin nổi bật
-        </div>
-        {/* lớp gradient tối để chữ dễ đọc */}
+      <article className="group relative h-full min-h-[26rem] overflow-hidden rounded-lg border border-slate-200 shadow-sm">
+        <img
+          src={anhMau3}
+          alt={main.title}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-        {/* nội dung đè lên ảnh, bám đáy */}
         <div className="absolute inset-x-0 bottom-0 p-5">
           <span className="mb-2 inline-block rounded bg-accent px-2 py-0.5 text-xs font-semibold text-accent-foreground">
             TIN NỔI BẬT
@@ -30,12 +31,15 @@ export default function FeaturedNews() {
         {side.map((s) => (
           <article
             key={s.title}
-            className="group flex items-start gap-4 rounded-lg border border-slate-200 bg-white p-3 shadow-sm transition-shadow hover:shadow-md"
+            className="group flex flex-1 items-stretch gap-4 overflow-hidden rounded-lg transition-shadow hover:shadow-md"
           >
-            <div className="flex h-24 w-32 shrink-0 items-center justify-center overflow-hidden rounded-md bg-slate-200 text-xs text-slate-400">
-              Ảnh
-            </div>
-            <div className="min-w-0 flex-1">
+            {/* ảnh tràn sát mép trái + cao bằng card */}
+            <img
+              src={anhMau1}
+              alt={s.title}
+              className="w-48 shrink-0 self-stretch object-cover rounded-lg"
+            />
+            <div className="min-w-0 flex-1 py-3">
               <h4 className="line-clamp-2 text-sm font-bold text-slate-800 group-hover:text-accent">
                 {s.title}
               </h4>
@@ -48,7 +52,7 @@ export default function FeaturedNews() {
                 {s.desc}
               </p>
             </div>
-            <ArrowUpRight className="h-4 w-4 shrink-0 text-slate-400 group-hover:text-accent" />
+            <ArrowUpRight className="mr-3 mt-3 h-4 w-4 shrink-0 text-slate-400 group-hover:text-accent" />
           </article>
         ))}
       </div>
