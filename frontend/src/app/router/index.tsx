@@ -1,10 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import PublicLayout from "@/app/layouts/PublicLayout";
-import AdminLayout from "@/app/layouts/AdminLayout";
-import AuthGuard from "@/app/guards/AuthGuard";
 import HomePage from "@/features/home/pages/HomePage";
-import LoginPage from "@/features/auth/pages/LoginPage";
-import DashboardPage from "@/features/dashboard/pages/DashboardPage";
 
 function Placeholder({ title }: { title: string }) {
   return <div className="p-6">{title}</div>;
@@ -13,38 +9,85 @@ function Placeholder({ title }: { title: string }) {
 export default function AppRouter() {
   return (
     <Routes>
-      {/* Public portal */}
       <Route element={<PublicLayout />}>
         <Route path="/" element={<HomePage />} />
-        <Route path="/tin-tuc" element={<Placeholder title="Tin tức" />} />
-        <Route path="/van-ban" element={<Placeholder title="Văn bản" />} />
+
+        {/* Giới thiệu */}
         <Route
-          path="/thu-vien-so"
-          element={<Placeholder title="Thư viện số" />}
+          path="/gioi-thieu/lich-su-su-doan-5"
+          element={<Placeholder title="Lịch sử Sư đoàn 5" />}
         />
-        <Route path="/media" element={<Placeholder title="Media" />} />
         <Route
-          path="/lich-cong-tac"
-          element={<Placeholder title="Lịch công tác" />}
+          path="/gioi-thieu/lich-su-trung-doan-4"
+          element={<Placeholder title="Lịch sử Trung đoàn 4" />}
         />
-        <Route path="/thong-bao" element={<Placeholder title="Thông báo" />} />
+        <Route
+          path="/gioi-thieu/lich-su-trung-doan-5"
+          element={<Placeholder title="Lịch sử Trung đoàn 5" />}
+        />
+        <Route
+          path="/gioi-thieu/lich-su-trung-doan-271"
+          element={<Placeholder title="Lịch sử Trung đoàn 271" />}
+        />
+
+        {/* Tin tức sự kiện */}
+        <Route
+          path="/tin-tuc/quan-khu-su-doan"
+          element={<Placeholder title="Tin tức quân khu & sư đoàn" />}
+        />
+        <Route
+          path="/tin-tuc/quan-doi"
+          element={<Placeholder title="Tin tức quân đội" />}
+        />
+        <Route
+          path="/tin-tuc/the-gioi"
+          element={<Placeholder title="Tin thế giới" />}
+        />
+        <Route
+          path="/tin-tuc/trong-nuoc"
+          element={<Placeholder title="Tin tức trong nước" />}
+        />
+
+        {/* Thư viện số */}
+        <Route
+          path="/thu-vien-so/dung-chung"
+          element={<Placeholder title="Dữ liệu dùng chung" />}
+        />
+        <Route
+          path="/thu-vien-so/dung-rieng"
+          element={<Placeholder title="Dữ liệu dùng riêng" />}
+        />
+
+        {/* Huấn luyện chiến đấu */}
+        <Route
+          path="/huan-luyen/ke-hoach"
+          element={<Placeholder title="Kế hoạch huấn luyện" />}
+        />
+        <Route
+          path="/huan-luyen/chuong-trinh"
+          element={<Placeholder title="Chương trình huấn luyện" />}
+        />
+        <Route
+          path="/huan-luyen/mau-bieu-bao-cao"
+          element={<Placeholder title="Mẫu biểu báo cáo huấn luyện" />}
+        />
+        <Route
+          path="/huan-luyen/tai-lieu"
+          element={<Placeholder title="Tài liệu huấn luyện" />}
+        />
+
+        {/* Chuyển đổi số */}
+        <Route
+          path="/chuyen-doi-so/binh-dan-hoc-vu-so"
+          element={<Placeholder title="Bình dân học vụ số" />}
+        />
+        <Route
+          path="/chuyen-doi-so/phat-trien-khoa-hoc-cong-nghe"
+          element={
+            <Placeholder title="Phát triển KHCN, đổi mới sáng tạo, chuyển đổi số" />
+          }
+        />
       </Route>
-
-      {/* Auth */}
-      <Route path="/login" element={<LoginPage />} />
-
-      {/* Admin (yêu cầu đăng nhập) */}
-      <Route element={<AuthGuard />}>
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route path="dashboard" element={<DashboardPage />} />
-        </Route>
-      </Route>
-
-      {/* 404 */}
-      <Route
-        path="*"
-        element={<Placeholder title="404 — Không tìm thấy trang" />}
-      />
     </Routes>
   );
 }
