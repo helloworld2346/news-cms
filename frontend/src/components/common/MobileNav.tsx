@@ -115,7 +115,6 @@ export default function MobileNav() {
           ),
         )}
       </nav>
-      );
     </div>
   );
 }

@@ -46,6 +46,7 @@ export interface VideoItem {
 export interface QuickAccessItem {
   key: string;
   label: string;
+  to: string;
   bg: string;
   text: string;
 }

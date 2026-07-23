@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import PublicLayout from "@/app/layouts/PublicLayout";
 import HomePage from "@/features/home/pages/HomePage";
+import MediaPage from "@/features/media/pages/MediaPage";  
+
 
 function Placeholder({ title }: { title: string }) {
   return <div className="p-6">{title}</div>;
@@ -11,6 +13,7 @@ export default function AppRouter() {
     <Routes>
       <Route element={<PublicLayout />}>
         <Route path="/" element={<HomePage />} />
+        <Route path="/media" element={<MediaPage />} />
 
         {/* Giới thiệu */}
         <Route

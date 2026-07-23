@@ -5,7 +5,7 @@ export default function ImageGallery() {
   const { data: count = 0 } = useGalleryCount();  
   return (
     <div>
-      <SectionHeading title="Hình ảnh hoạt động" />
+      <SectionHeading title="Hình ảnh hoạt động" href="/media" />
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         {Array.from({ length: count }).map((_, i) => (
           <div

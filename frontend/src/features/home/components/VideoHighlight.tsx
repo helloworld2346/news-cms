@@ -6,7 +6,7 @@ export default function VideoHighlight() {
   const { data: videos = [] } = useVideos();
   return (
     <div>
-      <SectionHeading title="Video nổi bật" />
+      <SectionHeading title="Video nổi bật" href="/media" />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         {videos.map((v) => (
           <div
