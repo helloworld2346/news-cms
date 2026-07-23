@@ -1,4 +1,5 @@
 import { Bell } from "lucide-react";
+import { Link } from "react-router-dom";
 import SectionHeading from "./SectionHeading";
 import {
   useLatestNews,
@@ -7,7 +8,11 @@ import {
   useSchedule,
   useScheduleDate,
 } from "../hooks/useHomeData";
-import anhMau2 from "@/assets/images/anhmau2.jpg"; 
+import anhMau2 from "@/assets/images/anhmau2.jpg";
+
+// route đích thật (khớp nav-items.ts)
+const NEWS_ROUTE = "/tin-tuc/quan-khu-su-doan";
+const DOCS_ROUTE = "/thu-vien-so/dung-chung";
 
 export default function InfoColumns() {
   const { data: latestNews = [] } = useLatestNews();
@@ -20,7 +25,7 @@ export default function InfoColumns() {
     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
       {/* Tin mới nhất */}
       <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-        <SectionHeading title="Tin mới nhất" />
+        <SectionHeading title="Tin mới nhất" href={NEWS_ROUTE} />
         <ul className="space-y-3">
           {latestNews.map((n) => (
             <li
@@ -33,12 +38,12 @@ export default function InfoColumns() {
                 className="h-14 w-14 shrink-0 rounded-lg object-cover"
               />
               <div className="min-w-0 flex-1">
-                <a
-                  href="#"
+                <Link
+                  to={NEWS_ROUTE}
                   className="line-clamp-2 text-sm font-medium text-slate-800 hover:text-accent"
                 >
                   {n.title}
-                </a>
+                </Link>
                 <div className="mt-1 flex items-center justify-between text-xs text-slate-400">
                   <span>{n.date}</span>
                   <span className="truncate pl-2">{n.dept}</span>
@@ -51,7 +56,7 @@ export default function InfoColumns() {
 
       {/* Văn bản mới */}
       <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-        <SectionHeading title="Văn bản mới" />
+        <SectionHeading title="Văn bản mới" href={DOCS_ROUTE} />
         <ul className="space-y-3">
           {documents.map((d) => (
             <li
@@ -66,12 +71,12 @@ export default function InfoColumns() {
                 </span>
               </div>
               <div className="min-w-0 flex-1">
-                <a
-                  href="#"
+                <Link
+                  to={DOCS_ROUTE}
                   className="line-clamp-2 text-sm font-medium text-slate-800 hover:text-accent"
                 >
                   {d.name}
-                </a>
+                </Link>
                 <div className="mt-1 flex items-center justify-between text-xs text-slate-400">
                   <span className="truncate">
                     {d.date} · {d.dept}
@@ -84,7 +89,8 @@ export default function InfoColumns() {
         </ul>
       </div>
 
-      {/* Thông báo */}
+      {/* Thông báo — chưa có route riêng nên không gắn "Xem tất cả",  
+          tiêu đề trỏ tạm về trang tin tức để tránh link chết */}
       <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
         <SectionHeading title="Thông báo" />
         <ul className="space-y-3">
@@ -97,12 +103,12 @@ export default function InfoColumns() {
                 <Bell className="h-4 w-4" />
               </span>
               <div className="min-w-0 flex-1">
-                <a
-                  href="#"
+                <Link
+                  to={NEWS_ROUTE}
                   className="line-clamp-2 text-sm font-medium text-slate-800 hover:text-accent"
                 >
                   {n.title}
-                </a>
+                </Link>
                 <div className="mt-1 text-xs text-slate-400">
                   {n.date} · {n.dept}
                 </div>

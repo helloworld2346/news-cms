@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import PublicLayout from "@/app/layouts/PublicLayout";
 import HomePage from "@/features/home/pages/HomePage";
 import MediaPage from "@/features/media/pages/MediaPage";  
-
+import DivisionHistoryPage from "@/features/about/pages/DivisionHistoryPage";  
 
 function Placeholder({ title }: { title: string }) {
   return <div className="p-6">{title}</div>;
@@ -18,7 +18,7 @@ export default function AppRouter() {
         {/* Giới thiệu */}
         <Route
           path="/gioi-thieu/lich-su-su-doan-5"
-          element={<Placeholder title="Lịch sử Sư đoàn 5" />}
+          element={<DivisionHistoryPage />}
         />
         <Route
           path="/gioi-thieu/lich-su-trung-doan-4"

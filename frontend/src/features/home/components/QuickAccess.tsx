@@ -20,25 +20,16 @@ const iconMap: Record<string, LucideIcon> = {
   media: Image,
 };
 
-const routeMap: Record<string, string> = {
-  news: "/tin-tuc/quan-khu-su-doan",
-  about: "/gioi-thieu/lich-su-su-doan-5",
-  library: "/thu-vien-so/dung-chung",
-  training: "/huan-luyen/ke-hoach",
-  digital: "/chuyen-doi-so/binh-dan-hoc-vu-so",
-  media: "/media",
-};
-
 export default function QuickAccess() {
   const { data: items = [] } = useQuickAccess();
   return (
     <div className="flex w-full flex-wrap items-start justify-around gap-1 rounded-xl border border-slate-200 bg-white p-3 shadow-sm sm:gap-2 sm:p-4">
-      {items.map(({ key, label, bg, text }, i) => {
+      {items.map(({ key, label, to, bg, text }, i) => {
         const Icon = iconMap[key];
         return (
           <Fragment key={key}>
             <Link
-              to={routeMap[key] ?? "/"}
+              to={to}
               className="flex w-[4.5rem] flex-col items-center gap-2 rounded-xl px-2 py-3 text-center transition hover:bg-slate-50 sm:w-24"
             >
               <span
@@ -50,7 +41,6 @@ export default function QuickAccess() {
                 {label}
               </span>
             </Link>
-
             {i < items.length - 1 && (
               <span
                 aria-hidden
