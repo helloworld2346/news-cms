@@ -111,26 +111,43 @@ export default function DivisionHistoryPage() {
           <img
             src={anhHuyChuong}
             alt="Chiến công Sư đoàn 5"
-            className="mt-5 h-96 w-full object-cover shadow-sm md:h-[36rem]"
+            className="h-96 w-full object-cover shadow-sm md:h-[36rem]"
           />
           <figcaption className="mt-2 text-center text-xs italic text-slate-500">
             Thiếu tướng Du Trường Giang thừa ủy quyền của Chủ tịch nước trao
             tặng Huân chương Bảo vệ Tổ quốc hạng Nhì cho Bộ Chỉ huy Sư đoàn 5.
           </figcaption>
         </figure>
-        <ul className="mt-6 space-y-4">
-          {battles.map((b) => (
-            <li key={b.name} className="flex gap-3">
-              <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-50 text-accent">
+        <ol className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2">
+          {battles.map((b, i) => (
+            <li
+              key={b.name}
+              className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+            >
+              {/* số thứ tự lớn mờ ở góc */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-3 -top-4 text-7xl font-black text-accent/10"
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50 text-accent">
                 <Swords className="h-5 w-5" />
               </span>
-              <div className="min-w-0">
-                <h3 className="text-sm font-bold text-primary">{b.name}</h3>
-                <p className="mt-1 text-sm text-slate-600">{b.desc}</p>
-              </div>
+              <h3 className="mt-4 text-base font-bold text-primary">
+                {b.name}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                {b.desc}
+              </p>
+              {/* gạch đỏ dưới đáy hiện khi hover */}
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-accent transition-transform group-hover:scale-x-100"
+              />
             </li>
           ))}
-        </ul>
+        </ol>
       </section>
 
       {/* 4. Huân chương, danh hiệu */}
@@ -138,19 +155,34 @@ export default function DivisionHistoryPage() {
         <h2 className="border-l-4 border-accent pl-3 text-xl font-bold uppercase text-primary">
           Huân chương &amp; danh hiệu
         </h2>
-        <ul className="mt-6 space-y-4">
+        <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
           {awards.map((a) => (
-            <li key={a.title} className="flex gap-3">
-              <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-amber-50 text-amber-500">
-                <AwardIcon className="h-5 w-5" />
-              </span>
-              <div className="min-w-0">
-                <h3 className="text-sm font-bold text-primary">{a.title}</h3>
-                <p className="mt-1 text-sm text-slate-600">{a.desc}</p>
+            <div
+              key={a.title}
+              className="relative isolate overflow-hidden rounded-xl bg-primary p-6 text-primary-foreground shadow-sm"
+            >
+              {/* nền lưới mờ tái dùng của hero */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center opacity-10"
+                style={{ backgroundImage: `url("/backgrounds/hero-grid.svg")` }}
+              />
+              <div className="relative z-10 flex gap-4">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-yellow-400/15 text-yellow-400 ring-1 ring-yellow-400/30">
+                  <AwardIcon className="h-6 w-6" />
+                </span>
+                <div className="min-w-0">
+                  <h3 className="text-base font-bold text-yellow-400">
+                    {a.title}
+                  </h3>
+                  <p className="mt-1 text-sm leading-relaxed text-primary-foreground/80">
+                    {a.desc}
+                  </p>
+                </div>
               </div>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
 
       {/* 5. Xây dựng đơn vị thời kỳ mới */}
@@ -186,7 +218,7 @@ export default function DivisionHistoryPage() {
           thành với Đảng, với Tổ quốc và nhân dân; đoàn kết một lòng, chủ động
           sáng tạo, tự lực tự cường, tô thắm thêm truyền thống vẻ vang, xứng
           đáng là bức tường thành vững chắc của khu vực phòng thủ miền Đông Nam
-          Bộ.
+          Bộ, là điểm tựa tin cậy của Đảng, Nhà nước và nhân dân.
         </p>
         <p className="mt-4 text-center text-base font-semibold italic text-primary">
           “Đoàn kết trung dũng, cơ động linh hoạt, tự lực tự cường, đánh thắng
