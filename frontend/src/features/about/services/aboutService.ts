@@ -3,7 +3,19 @@ import type {
   BattleHonor,
   Award,
   ModernPillar,
+  DivisionImages,
 } from "../types";
+import anhHero from "@/assets/images/hero.jpg";
+import anhKyNiem from "@/assets/images/lekyniem2311.jpg";
+import anhHuyChuong from "@/assets/images/lenhanhuychuong.jpg";
+
+export function getDivisionImages(): DivisionImages {
+  return {
+    hero: anhHero,
+    intro: anhKyNiem,
+    battle: anhHuyChuong,
+  };
+}
 
 export function getHistoryMilestones(): HistoryMilestone[] {
   return [

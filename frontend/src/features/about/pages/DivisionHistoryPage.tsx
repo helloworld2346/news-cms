@@ -9,26 +9,27 @@ import {
   useBattleHonors,
   useAwards,
   useModernPillars,
+  useDivisionImages,
 } from "../hooks/useAboutData";
-import anhHero from "@/assets/images/hero.jpg";
-import anhKyNiem from "@/assets/images/lekyniem2311.jpg";
-import anhHuyChuong from "@/assets/images/lenhanhuychuong.jpg";
 
 export default function DivisionHistoryPage() {
   const { data: milestones = [] } = useHistoryMilestones();
   const { data: battles = [] } = useBattleHonors();
   const { data: awards = [] } = useAwards();
   const { data: pillars = [] } = useModernPillars();
+  const { data: images } = useDivisionImages();
 
   return (
     <article className="mx-auto max-w-5xl px-6 py-10 md:px-8">
       {/* Hero bài viết */}
       <header className="relative isolate overflow-hidden rounded-xl bg-primary text-primary-foreground shadow-sm">
-        <img
-          src={anhHero}
-          alt="Sư đoàn 5"
-          className="absolute inset-0 z-0 h-full w-full object-cover opacity-50"
-        />
+        {images?.hero && (
+          <img
+            src={images.hero}
+            alt="Sư đoàn 5"
+            className="absolute inset-0 z-0 h-full w-full object-cover opacity-50"
+          />
+        )}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-t from-primary via-primary/80 to-primary/40"
@@ -71,17 +72,19 @@ export default function DivisionHistoryPage() {
       </section>
 
       {/* Ảnh lớn minh hoạ */}
-      <figure className="mt-8">
-        <img
-          src={anhKyNiem}
-          alt="Đại tướng Nguyễn Trọng Nghĩa và Thượng tướng Nguyễn Trường Thắng cùng các đại biểu đến dự lễ. (Ảnh: QDND.vn)"
-          className="h-96 w-full object-cover shadow-sm md:h-[36rem]"
-        />
-        <figcaption className="mt-2 text-center text-xs italic text-slate-500">
-          Đại tướng Nguyễn Trọng Nghĩa và Thượng tướng Nguyễn Trường Thắng cùng
-          các đại biểu đến dự lễ. (Ảnh: QDND.vn)
-        </figcaption>
-      </figure>
+      {images?.intro && (
+        <figure className="mt-8">
+          <img
+            src={images.intro}
+            alt="Đại tướng Nguyễn Trọng Nghĩa và Thượng tướng Nguyễn Trường Thắng cùng các đại biểu đến dự lễ. (Ảnh: QDND.vn)"
+            className="h-96 w-full object-cover shadow-sm md:h-[36rem]"
+          />
+          <figcaption className="mt-2 text-center text-xs italic text-slate-500">
+            Đại tướng Nguyễn Trọng Nghĩa và Thượng tướng Nguyễn Trường Thắng
+            cùng các đại biểu đến dự lễ. (Ảnh: QDND.vn)
+          </figcaption>
+        </figure>
+      )}
 
       {/* 2. Timeline lịch sử - một cột */}
       <section className="mt-12">
@@ -97,6 +100,13 @@ export default function DivisionHistoryPage() {
                 {m.title}
               </h3>
               <p className="mt-1 text-sm text-slate-600">{m.desc}</p>
+              {m.image && (
+                <img
+                  src={m.image}
+                  alt={m.title}
+                  className="mt-3 h-56 w-full rounded-lg object-cover shadow-sm md:h-72"
+                />
+              )}
             </li>
           ))}
         </ol>
@@ -107,24 +117,25 @@ export default function DivisionHistoryPage() {
         <h2 className="border-l-4 border-accent pl-3 text-xl font-bold uppercase text-primary">
           Những chiến thắng vang dội
         </h2>
-        <figure className="mt-8">
-          <img
-            src={anhHuyChuong}
-            alt="Chiến công Sư đoàn 5"
-            className="h-96 w-full object-cover shadow-sm md:h-[36rem]"
-          />
-          <figcaption className="mt-2 text-center text-xs italic text-slate-500">
-            Thiếu tướng Du Trường Giang thừa ủy quyền của Chủ tịch nước trao
-            tặng Huân chương Bảo vệ Tổ quốc hạng Nhì cho Bộ Chỉ huy Sư đoàn 5.
-          </figcaption>
-        </figure>
+        {images?.battle && (
+          <figure className="mt-8">
+            <img
+              src={images.battle}
+              alt="Chiến công Sư đoàn 5"
+              className="h-96 w-full object-cover shadow-sm md:h-[36rem]"
+            />
+            <figcaption className="mt-2 text-center text-xs italic text-slate-500">
+              Thiếu tướng Du Trường Giang thừa ủy quyền của Chủ tịch nước trao
+              tặng Huân chương Bảo vệ Tổ quốc hạng Nhì cho Bộ Chỉ huy Sư đoàn 5.
+            </figcaption>
+          </figure>
+        )}
         <ol className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2">
           {battles.map((b, i) => (
             <li
               key={b.name}
               className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
             >
-              {/* số thứ tự lớn mờ ở góc */}
               <span
                 aria-hidden="true"
                 className="pointer-events-none absolute -right-3 -top-4 text-7xl font-black text-accent/10"
@@ -140,7 +151,13 @@ export default function DivisionHistoryPage() {
               <p className="mt-2 text-sm leading-relaxed text-slate-600">
                 {b.desc}
               </p>
-              {/* gạch đỏ dưới đáy hiện khi hover */}
+              {b.image && (
+                <img
+                  src={b.image}
+                  alt={b.name}
+                  className="mt-4 h-40 w-full rounded-lg object-cover"
+                />
+              )}
               <span
                 aria-hidden="true"
                 className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-accent transition-transform group-hover:scale-x-100"
@@ -161,7 +178,6 @@ export default function DivisionHistoryPage() {
               key={a.title}
               className="relative isolate overflow-hidden rounded-xl bg-primary p-6 text-primary-foreground shadow-sm"
             >
-              {/* nền lưới mờ tái dùng của hero */}
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center opacity-10"

@@ -4,6 +4,7 @@ import {
   getBattleHonors,
   getAwards,
   getModernPillars,
+  getDivisionImages,
 } from "@/features/about/services/aboutService";
 
 export const useHistoryMilestones = () =>
@@ -17,3 +18,5 @@ export const useAwards = () =>
   useQuery({ queryKey: ["about", "awards"], queryFn: getAwards });
 export const useModernPillars = () =>
   useQuery({ queryKey: ["about", "pillars"], queryFn: getModernPillars });
+export const useDivisionImages = () =>
+  useQuery({ queryKey: ["about", "images"], queryFn: getDivisionImages });
