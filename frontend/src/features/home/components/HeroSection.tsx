@@ -1,4 +1,5 @@
 import SearchBar from "./SearchBar";
+import subHero from "@/assets/images/subherro.png";
 
 export default function HeroSection() {
   return (
@@ -13,6 +14,7 @@ export default function HeroSection() {
         className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-24 bg-gradient-to-b from-transparent to-surface"
       />
 
+      {/* Tiêu đề + ô tìm kiếm (giữ hẹp) */}
       <div className="relative z-10 mx-auto max-w-3xl px-6 pt-24 pb-10 text-center">
         <h1 className="text-3xl font-bold text-primary md:text-4xl">
           Cổng thông tin điện tử Sư đoàn 5
@@ -23,6 +25,15 @@ export default function HeroSection() {
         <div className="mt-8">
           <SearchBar />
         </div>
+      </div>
+
+      {/* Ảnh subhero (rộng bằng FeaturedNews) */}
+      <div className="relative z-10 mx-auto max-w-screen-2xl px-6 pb-10 md:px-8">
+        <img
+          src={subHero}
+          alt="Sư đoàn 5"
+          className="w-full rounded-lg object-cover shadow-sm"
+        />
       </div>
     </section>
   );

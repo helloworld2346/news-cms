@@ -21,23 +21,23 @@ export default function MobileNav() {
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Đóng menu" : "Mở menu"}
         aria-expanded={open}
-        className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-md hover:bg-slate-100"
+        className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-md hover:bg-white/10"
       >
         <span
           className={cn(
-            "block h-0.5 w-6 rounded-full bg-slate-700 transition-transform duration-300",
+            "block h-0.5 w-6 rounded-full bg-white transition-transform duration-300",
             open && "translate-y-[7px] rotate-45",
           )}
         />
         <span
           className={cn(
-            "block h-0.5 w-6 rounded-full bg-slate-700 transition-opacity duration-300",
+            "block h-0.5 w-6 rounded-full bg-white transition-opacity duration-300",
             open && "opacity-0",
           )}
         />
         <span
           className={cn(
-            "block h-0.5 w-6 rounded-full bg-slate-700 transition-transform duration-300",
+            "block h-0.5 w-6 rounded-full bg-white transition-transform duration-300",
             open && "-translate-y-[7px] -rotate-45",
           )}
         />

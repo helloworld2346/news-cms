@@ -5,15 +5,15 @@ import { cn } from "@/lib/utils";
 import { navItems } from "./nav-items";
 
 const linkBase =
-  "relative whitespace-nowrap py-7 text-sm font-semibold tracking-wide transition-colors";
+  "relative whitespace-nowrap py-4 text-sm font-semibold tracking-wide transition-colors";
 const underline =
-  "after:absolute after:inset-x-0 after:bottom-5 after:h-0.5 after:bg-accent after:transition-transform";
+  "after:absolute after:inset-x-0 after:bottom-2 after:h-0.5 after:bg-white after:transition-transform";
 
 export default function DesktopNav() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <nav className="hidden flex-1 items-center justify-center gap-5 xl:flex 2xl:gap-6">
+    <nav className="mx-auto hidden max-w-screen-2xl items-center justify-center gap-5 px-4 md:px-8 xl:flex 2xl:gap-6">
       {navItems.map((item, i) =>
         item.children ? (
           <div
@@ -29,7 +29,7 @@ export default function DesktopNav() {
               className={cn(
                 linkBase,
                 underline,
-                "flex items-center gap-1 text-slate-700 hover:text-primary after:scale-x-0",
+                "flex items-center gap-1 text-white hover:text-white/80 after:scale-x-0",
               )}
             >
               {item.label}
@@ -76,8 +76,8 @@ export default function DesktopNav() {
                 linkBase,
                 underline,
                 isActive
-                  ? "text-accent after:scale-x-100"
-                  : "text-slate-700 hover:text-primary after:scale-x-0",
+                  ? "text-white after:scale-x-100"
+                  : "text-white hover:text-white/80 after:scale-x-0",
               )
             }
           >

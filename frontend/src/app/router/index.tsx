@@ -3,6 +3,7 @@ import PublicLayout from "@/app/layouts/PublicLayout";
 import HomePage from "@/features/home/pages/HomePage";
 import MediaPage from "@/features/media/pages/MediaPage";  
 import DivisionHistoryPage from "@/features/about/pages/DivisionHistoryPage";  
+import Regiment4HistoryPage from "@/features/about/pages/Regiment4HistoryPage";  
 
 function Placeholder({ title }: { title: string }) {
   return <div className="p-6">{title}</div>;
@@ -22,7 +23,7 @@ export default function AppRouter() {
         />
         <Route
           path="/gioi-thieu/lich-su-trung-doan-4"
-          element={<Placeholder title="Lịch sử Trung đoàn 4" />}
+          element={<Regiment4HistoryPage />}
         />
         <Route
           path="/gioi-thieu/lich-su-trung-doan-5"
