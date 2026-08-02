@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/images/logo.png";
 import { navItems } from "./nav-items";
 
 const linkBase =
@@ -9,11 +10,43 @@ const linkBase =
 const underline =
   "after:absolute after:inset-x-0 after:bottom-2 after:h-0.5 after:bg-white after:transition-transform";
 
-export default function DesktopNav() {
+type Props = { compact?: boolean };
+
+export default function DesktopNav({ compact = false }: Props) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <nav className="mx-auto hidden max-w-screen-2xl items-center justify-center gap-5 px-4 md:px-8 xl:flex 2xl:gap-6">
+    <nav
+      className={cn(
+        "mx-auto hidden max-w-screen-2xl items-center gap-5 px-4 md:px-8 xl:flex 2xl:gap-6",
+        "justify-center",
+      )}
+    >
+      {/* Luôn render để có transition; ẩn/hiện + trượt vào khi compact */}
+      <NavLink
+        to="/"
+        aria-hidden={!compact}
+        tabIndex={compact ? 0 : -1}
+        className={cn(
+          "flex shrink-0 items-center gap-2 overflow-hidden transition-all duration-300 ease-out",
+          compact
+            ? "mr-4 max-w-xs translate-x-0 opacity-100"
+            : "pointer-events-none mr-0 max-w-0 -translate-x-4 opacity-0",
+        )}
+      >
+        <img
+          src={logo}
+          alt="Logo Sư đoàn"
+          className={cn(
+            "object-contain transition-all duration-300 ease-out",
+            compact ? "h-9 w-9 scale-100" : "h-9 w-0 scale-90",
+          )}
+        />
+        <span className="whitespace-nowrap text-lg font-bold tracking-wide text-white">
+          Sư đoàn 5
+        </span>
+      </NavLink>
+
       {navItems.map((item, i) =>
         item.children ? (
           <div
