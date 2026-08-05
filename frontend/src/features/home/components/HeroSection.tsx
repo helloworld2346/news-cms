@@ -1,5 +1,5 @@
 import SearchBar from "./SearchBar";
-import subHero from "@/assets/images/subherro.png";
+import subBanner from "@/assets/images/subbanner.png";
 
 export default function HeroSection() {
   return (
@@ -30,7 +30,7 @@ export default function HeroSection() {
       {/* Ảnh subhero (rộng bằng FeaturedNews) */}
       <div className="relative z-10 mx-auto max-w-screen-2xl px-6 pb-10 md:px-8">
         <img
-          src={subHero}
+          src={subBanner}
           alt="Sư đoàn 5"
           className="w-full rounded-lg object-cover shadow-sm"
         />
