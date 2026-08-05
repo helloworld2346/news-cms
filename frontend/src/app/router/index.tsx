@@ -4,6 +4,7 @@ import HomePage from "@/features/home/pages/HomePage";
 import MediaPage from "@/features/media/pages/MediaPage";  
 import DivisionHistoryPage from "@/features/about/pages/DivisionHistoryPage";  
 import Regiment4HistoryPage from "@/features/about/pages/Regiment4HistoryPage";  
+import Regiment5HistoryPage from "@/features/about/pages/Regiment5HistoryPage";  
 
 function Placeholder({ title }: { title: string }) {
   return <div className="p-6">{title}</div>;
@@ -27,7 +28,7 @@ export default function AppRouter() {
         />
         <Route
           path="/gioi-thieu/lich-su-trung-doan-5"
-          element={<Placeholder title="Lịch sử Trung đoàn 5" />}
+          element={<Regiment5HistoryPage />}
         />
         <Route
           path="/gioi-thieu/lich-su-trung-doan-271"
