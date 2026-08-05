@@ -10,7 +10,7 @@ export function getRegiment4Facts(): RegimentFact[] {
     { label: "Ngày thành lập", value: "03/02/1965" },
     { label: "Năm truyền thống", value: "61 năm" },
     { label: "Nơi thành lập", value: "Chiến khu Đ" },
-    { label: "Trực thuộc", value: "Sư đoàn 5 - Quân khu 7" },
+    { label: "Trực thuộc", value: "Sư đoàn 5" },
   ];
 }
 
