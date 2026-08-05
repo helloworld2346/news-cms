@@ -84,7 +84,7 @@ export default function Regiment4HistoryPage() {
           className="h-96 w-full object-cover shadow-sm md:h-[36rem]"
         />
         <figcaption className="mt-2 text-center text-xs italic text-slate-500">
-          Trung đoàn 4, Sư đoàn 5 kiểm tra bắn đạn thật cho chiến sĩ mới
+          Trung đoàn 4, Sư đoàn 5 kiểm tra bắn đạn thật cho chiến sĩ mới.
         </figcaption>
       </figure>
 
@@ -119,7 +119,7 @@ export default function Regiment4HistoryPage() {
             className="h-96 w-full object-cover shadow-sm md:h-[36rem]"
           />
           <figcaption className="mt-2 text-center text-xs italic text-slate-500">
-            Trung đoàn 4 tổ chức Lễ kỷ niệm 60 năm Ngày truyền thống
+            Trung đoàn 4 tổ chức Lễ kỷ niệm 60 năm Ngày truyền thống.
           </figcaption>
         </figure>
         <ol className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2">

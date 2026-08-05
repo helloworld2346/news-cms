@@ -5,6 +5,7 @@ import MediaPage from "@/features/media/pages/MediaPage";
 import DivisionHistoryPage from "@/features/about/pages/DivisionHistoryPage";  
 import Regiment4HistoryPage from "@/features/about/pages/Regiment4HistoryPage";  
 import Regiment5HistoryPage from "@/features/about/pages/Regiment5HistoryPage";  
+import Regiment271HistoryPage from "@/features/about/pages/Regiment271HistoryPage";  
 
 function Placeholder({ title }: { title: string }) {
   return <div className="p-6">{title}</div>;
@@ -32,7 +33,7 @@ export default function AppRouter() {
         />
         <Route
           path="/gioi-thieu/lich-su-trung-doan-271"
-          element={<Placeholder title="Lịch sử Trung đoàn 271" />}
+          element={<Regiment271HistoryPage />}
         />
 
         {/* Tin tức sự kiện */}

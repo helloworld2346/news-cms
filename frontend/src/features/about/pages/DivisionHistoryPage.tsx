@@ -81,7 +81,7 @@ export default function DivisionHistoryPage() {
           />
           <figcaption className="mt-2 text-center text-xs italic text-slate-500">
             Đại tướng Nguyễn Trọng Nghĩa và Thượng tướng Nguyễn Trường Thắng
-            cùng các đại biểu đến dự lễ. (Ảnh: QDND.vn)
+            cùng các đại biểu đến dự lễ.
           </figcaption>
         </figure>
       )}

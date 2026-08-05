@@ -1,19 +1,20 @@
+// frontend/src/features/about/pages/Regiment271HistoryPage.tsx
 import { ShieldCheck, Swords, CheckCircle2 } from "lucide-react";
 import {
-  useRegiment5Facts,
-  useRegiment5Milestones,
-  useRegiment5Battles,
-  useRegiment5Political,
-} from "../hooks/useRegiment5Data";
-import anhHero from "@/assets/images/kyniem5.jpg";
-import anhIntro from "@/assets/images/e5duyetdoingu.jpg";
-import anhBattle from "@/assets/images/kynieme5.jpg";
+  useRegiment271Facts,
+  useRegiment271Milestones,
+  useRegiment271Battles,
+  useRegiment271Political,
+} from "../hooks/useRegiment271Data";
+import anhHero from "@/assets/images/csme271.jpg";
+import anhIntro from "@/assets/images/sscde271.jpg";
+import anhBattle from "@/assets/images/e271ahllvt.jpg";
 
-export default function Regiment5HistoryPage() {
-  const { data: facts = [] } = useRegiment5Facts();
-  const { data: milestones = [] } = useRegiment5Milestones();
-  const { data: battles = [] } = useRegiment5Battles();
-  const { data: political = [] } = useRegiment5Political();
+export default function Regiment271HistoryPage() {
+  const { data: facts = [] } = useRegiment271Facts();
+  const { data: milestones = [] } = useRegiment271Milestones();
+  const { data: battles = [] } = useRegiment271Battles();
+  const { data: political = [] } = useRegiment271Political();
 
   return (
     <article className="mx-auto max-w-5xl px-6 py-10 md:px-8">
@@ -21,7 +22,7 @@ export default function Regiment5HistoryPage() {
       <header className="relative isolate overflow-hidden rounded-xl bg-primary text-primary-foreground shadow-sm">
         <img
           src={anhHero}
-          alt="Trung đoàn 5"
+          alt="Trung đoàn 271"
           className="absolute inset-0 z-0 h-full w-full object-cover opacity-50"
         />
         <div
@@ -31,13 +32,14 @@ export default function Regiment5HistoryPage() {
         <div className="relative z-10 p-8 md:p-12">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary-foreground/80">
             <ShieldCheck className="h-3.5 w-3.5 text-accent" />
-            Giới thiệu · Trung đoàn 5
+            Giới thiệu · Trung đoàn 271
           </div>
           <h1 className="mt-4 text-3xl font-bold leading-tight md:text-4xl">
-            Trung đoàn 5 (Sư đoàn 5): Vượt mọi khó khăn, liên tục đánh thắng
+            Trung đoàn 271 (Sư đoàn 5): 77 năm một chặng đường vẻ vang
           </h1>
           <p className="mx-auto mt-3 max-w-2xl text-center text-sm font-semibold italic text-yellow-400 md:text-base">
-            “Vượt mọi khó khăn, liên tục đánh thắng”
+            “Tích cực chủ động, khắc phục khó khăn, tự lực tự cường, chiến đấu
+            dũng cảm, đoàn kết tốt, kỷ luật nghiêm, tiến bộ vững chắc”
           </p>
         </div>
         <div
@@ -63,15 +65,15 @@ export default function Regiment5HistoryPage() {
       {/* 1. Lời giới thiệu chung */}
       <section className="mt-10 space-y-4 text-[15px] leading-relaxed text-slate-700 md:text-base">
         <p className="text-lg font-semibold text-primary">
-          Trung đoàn 5 (Sư đoàn 5, Quân khu 7) được thành lập ngày 31/05/1965
-          tại khu rừng Bà Hảo thuộc chiến khu Dương Minh Châu, tỉnh Tây Ninh.
+          Trung đoàn 271 (Sư đoàn 5) là một trong những trung đoàn chủ lực đầu
+          tiên của Quân đội Nhân dân Việt Nam, được thành lập ngày 18/12/1947
+          tại chiến trường cực Nam Trung Bộ, tiền thân là Trung đoàn 812.
         </p>
         <p>
-          Trải qua 60 năm xây dựng, chiến đấu và trưởng thành, các thế hệ cán
-          bộ, chiến sĩ Trung đoàn đã vượt qua mọi khó khăn, gian khổ, hi sinh,
-          lập nhiều chiến công, viết tiếp truyền thống “Vượt mọi khó khăn, liên
-          tục đánh thắng”. Trung đoàn hai lần được Đảng, Nhà nước tuyên dương
-          danh hiệu Anh hùng lực lượng vũ trang nhân dân (1975, 1985).
+          Trải qua 77 năm xây dựng, chiến đấu và trưởng thành (18/12/1947 -
+          18/12/2024), với những chiến công, thành tích đạt được, Trung đoàn
+          được Đảng, Nhà nước tặng thưởng danh hiệu Anh hùng LLVT Nhân dân trong
+          chiến đấu và trong thời kỳ đổi mới, cùng nhiều phần thưởng cao quý.
         </p>
       </section>
 
@@ -79,11 +81,11 @@ export default function Regiment5HistoryPage() {
       <figure className="mt-8">
         <img
           src={anhIntro}
-          alt="Trung đoàn 5"
+          alt="Trung đoàn 271"
           className="h-96 w-full object-cover shadow-sm md:h-[36rem]"
         />
         <figcaption className="mt-2 text-center text-xs italic text-slate-500">
-          Cán bộ, chiến sĩ Trung đoàn 5 luyện tập duyệt đội ngũ hằng tuần.
+          Đoàn công tác báo động sẵn sàng chiến đấu tại Trung đoàn 271.
         </figcaption>
       </figure>
 
@@ -114,11 +116,11 @@ export default function Regiment5HistoryPage() {
         <figure className="mt-8">
           <img
             src={anhBattle}
-            alt="Chiến công Trung đoàn 5"
+            alt="Chiến công Trung đoàn 271"
             className="h-96 w-full object-cover shadow-sm md:h-[36rem]"
           />
           <figcaption className="mt-2 text-center text-xs italic text-slate-500">
-            Trung đoàn 5 tổ chức Lễ kỷ niệm 60 năm Ngày truyền thống.
+            Trung đoàn 271 nhận danh hiệu Anh hùng LLVT Nhân dân.
           </figcaption>
         </figure>
         <ol className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -179,13 +181,15 @@ export default function Regiment5HistoryPage() {
       {/* 5. Lời kết */}
       <section className="mt-12 rounded-xl border border-slate-200 bg-surface p-6 md:p-8">
         <p className="text-[15px] leading-relaxed text-slate-700 md:text-base">
-          Phát huy truyền thống vẻ vang 60 năm của đơn vị hai lần Anh hùng, cán
-          bộ, chiến sĩ Trung đoàn 5 hôm nay tiếp tục nêu cao tinh thần chủ động,
-          tự lực, tự cường, xây dựng đơn vị vững mạnh toàn diện “mẫu mực, tiêu
-          biểu”, sẵn sàng nhận và hoàn thành xuất sắc mọi nhiệm vụ được giao.
+          Phát huy truyền thống 77 năm của đơn vị hai lần Anh hùng, cán bộ,
+          chiến sĩ Trung đoàn 271 tiếp tục xây dựng Đảng bộ trong sạch vững mạnh
+          “gương mẫu, tiêu biểu”, đơn vị vững mạnh toàn diện “mẫu mực, tiêu
+          biểu”, góp phần cùng toàn Đảng, toàn dân, toàn quân xây dựng và bảo vệ
+          vững chắc Tổ quốc Việt Nam XHCN.
         </p>
         <p className="mt-4 text-center text-base font-semibold italic text-primary">
-          “Vượt mọi khó khăn, liên tục đánh thắng”
+          “Tích cực chủ động, khắc phục khó khăn, tự lực tự cường, chiến đấu
+          dũng cảm, đoàn kết tốt, kỷ luật nghiêm, tiến bộ vững chắc”
         </p>
       </section>
     </article>
