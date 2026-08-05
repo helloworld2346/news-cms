@@ -1,4 +1,3 @@
-// frontend/src/features/about/pages/Regiment271HistoryPage.tsx
 import { ShieldCheck, Swords, CheckCircle2 } from "lucide-react";
 import {
   useRegiment271Facts,
@@ -9,8 +8,10 @@ import {
 import anhHero from "@/assets/images/csme271.jpg";
 import anhIntro from "@/assets/images/sscde271.jpg";
 import anhBattle from "@/assets/images/e271ahllvt.jpg";
+import { usePageTitle } from "@/components/common/page-title-context";
 
 export default function Regiment271HistoryPage() {
+  usePageTitle("Trung đoàn 271 (Sư đoàn 5): 77 năm một chặng đường vẻ vang");
   const { data: facts = [] } = useRegiment271Facts();
   const { data: milestones = [] } = useRegiment271Milestones();
   const { data: battles = [] } = useRegiment271Battles();

@@ -11,8 +11,12 @@ import {
   useModernPillars,
   useDivisionImages,
 } from "../hooks/useAboutData";
+import { usePageTitle } from "@/components/common/page-title-context";  
 
 export default function DivisionHistoryPage() {
+  usePageTitle(
+    "Lịch sử truyền thống vẻ vang Sư đoàn 5 - Quân khu 7 (1965 - 2026)",
+  );
   const { data: milestones = [] } = useHistoryMilestones();
   const { data: battles = [] } = useBattleHonors();
   const { data: awards = [] } = useAwards();

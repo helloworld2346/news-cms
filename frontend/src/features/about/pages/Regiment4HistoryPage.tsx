@@ -8,8 +8,13 @@ import {
 import anhHero from "@/assets/images/td4hero.jpg";
 import anhIntro from "@/assets/images/anhintro.png";
 import anhBattle from "@/assets/images/anhbattle.jpg";
+import { usePageTitle } from "@/components/common/page-title-context";  
 
 export default function Regiment4HistoryPage() {
+  usePageTitle(
+    "Trung đoàn 4 (Sư đoàn 5): Kiên cường bám trụ, lẫy lừng chiến công",
+  );
+
   const { data: facts = [] } = useRegiment4Facts();
   const { data: milestones = [] } = useRegiment4Milestones();
   const { data: battles = [] } = useRegiment4Battles();

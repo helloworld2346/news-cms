@@ -1,12 +1,17 @@
+// frontend/src/components/common/Header.tsx
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { cn } from "@/lib/utils";
 import logo from "@/assets/images/logo.png";
 import MobileNav from "./MobileNav";
 import DesktopNav from "./DesktopNav";
+import { usePageTitleValue } from "./page-title-context";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const bannerRef = useRef<HTMLDivElement>(null);
+  const pageTitle = usePageTitleValue();
+  const showTitle = scrolled && !!pageTitle;
 
   useEffect(() => {
     const el = bannerRef.current;
@@ -54,9 +59,15 @@ export default function Header() {
           </div>
         </div>
       </div>
-
-      <div className="sticky top-0 z-40 hidden border-t border-white/20 bg-accent text-accent-foreground shadow-sm xl:block">
-        <DesktopNav compact={scrolled} />
+      <div
+        className={cn(
+          "sticky top-0 z-40 hidden border-t transition-all duration-300 xl:block",
+          showTitle
+            ? "border-slate-200 bg-white text-slate-700 shadow-md shadow-slate-300/50"
+            : "border-white/20 bg-accent text-accent-foreground shadow-sm",
+        )}
+      >
+        <DesktopNav compact={scrolled} title={showTitle ? pageTitle : null} />
       </div>
     </header>
   );

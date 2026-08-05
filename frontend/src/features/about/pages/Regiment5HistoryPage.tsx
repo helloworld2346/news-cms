@@ -8,8 +8,12 @@ import {
 import anhHero from "@/assets/images/kyniem5.jpg";
 import anhIntro from "@/assets/images/e5duyetdoingu.jpg";
 import anhBattle from "@/assets/images/kynieme5.jpg";
+import { usePageTitle } from "@/components/common/page-title-context";  
 
 export default function Regiment5HistoryPage() {
+  usePageTitle(
+    "Trung đoàn 5 (Sư đoàn 5): Vượt mọi khó khăn, liên tục đánh thắng",
+  );
   const { data: facts = [] } = useRegiment5Facts();
   const { data: milestones = [] } = useRegiment5Milestones();
   const { data: battles = [] } = useRegiment5Battles();
