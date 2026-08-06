@@ -56,3 +56,16 @@ export interface LibraryStatItem {
   count: number;
   color: string;
 }
+
+export interface EventNewsCard {
+  title: string;
+  desc?: string;
+  image: string;
+  to: string;
+}
+export interface EventNewsCategory {
+  label: string; // tên mục, vd "Tin tức quân khu & sư đoàn"
+  to: string; // route của mục, vd "/tin-tuc/quan-khu-su-doan"
+  big: EventNewsCard[]; // 2 thẻ lớn hàng trên
+  small: EventNewsCard[]; // 3 thẻ nhỏ hàng dưới
+}

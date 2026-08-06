@@ -9,11 +9,12 @@ import { getNotifications } from "@/features/home/services/notificationService";
 import {
   getSchedule,
   getScheduleDate,
-} from "@/features/home/services/scheduleService";  
+} from "@/features/home/services/scheduleService";
 import { getQuickAccess } from "@/features/home/services/quickAccessService";
 import { getLibraryStats } from "@/features/home/services/libraryStatsService";
 import { getVideos } from "@/features/home/services/videoService";
 import { getGalleryCount } from "@/features/home/services/galleryService";
+import { getEventNews } from "@/features/home/services/eventNewsService";
 
 export const useFeaturedMain = () =>
   useQuery({ queryKey: ["home", "featured-main"], queryFn: getFeaturedMain });
@@ -37,3 +38,5 @@ export const useVideos = () =>
   useQuery({ queryKey: ["home", "videos"], queryFn: getVideos });
 export const useGalleryCount = () =>
   useQuery({ queryKey: ["home", "gallery-count"], queryFn: getGalleryCount });
+export const useEventNews = () =>
+  useQuery({ queryKey: ["home", "event-news"], queryFn: getEventNews });

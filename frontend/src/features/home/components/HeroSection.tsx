@@ -27,8 +27,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Ảnh subhero (rộng bằng FeaturedNews) */}
-      <div className="relative z-10 mx-auto max-w-screen-2xl px-6 pb-10 md:px-8">
+      <div className="relative z-10 mx-auto max-w-screen-xl px-6 md:px-8">
         <img
           src={subBanner}
           alt="Sư đoàn 5"
